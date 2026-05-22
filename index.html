@@ -1,34 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Python Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            background-color: #111;
-            color: white;
-            font-family: monospace;
-            padding: 40px;
-        }
+<title>My Python Project</title>
 
-        pre {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>
+hljs.highlightAll();
+
+function toggleCode(id, button) {
+    const code = document.getElementById(id);
+
+    if (code.style.display === "none") {
+        code.style.display = "block";
+        button.innerText = "Collapse";
+    } else {
+        code.style.display = "none";
+        button.innerText = "Expand";
+    }
+}
+</script>
+
+<style>
+
+body {
+    background: #0f0f0f;
+    color: white;
+    font-family: Arial;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    padding: 60px;
+    background: #151515;
+}
+
+header h1 {
+    font-size: 50px;
+}
+
+.section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.media {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #3b82f6;
+    border: none;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+pre {
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>My Python Project</h1>
+<header>
+    <h1>My Python School Project</h1>
+    <p>Code demonstrations and showcases</p>
+</header>
 
-<pre>
-def hello():
-    print("Hello world")
+<div class="section">
 
-hello()
-</pre>
+    <!-- CARD 1 -->
+    <div class="card">
+        <h2>Face Tracking System</h2>
+
+        <p>
+            This project uses MediaPipe and OpenCV to track facial movement,
+            blinking, and hand motion in real time.
+        </p>
+
+        <!-- GIF -->
+        <img class="media"
+        src="YOUR_GIF_LINK_HERE">
+
+        <button onclick="toggleCode('code1', this)">
+            Expand
+        </button>
+
+        <div id="code1" style="display:none;">
+<pre><code class="language-python">
+import cv2
+import mediapipe as mp
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    success, img = cap.read()
+    cv2.imshow("Camera", img)
+
+    if cv2.waitKey(1) == ord('q'):
+        break
+</code></pre>
+        </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+        <h2>Physics Simulation</h2>
+
+        <p>
+            Simulates object movement and collision detection.
+        </p>
+
+        <!-- VIDEO -->
+        <video class="media" controls>
+            <source src="YOUR_VIDEO_LINK.mp4" type="video/mp4">
+        </video>
+
+        <button onclick="toggleCode('code2', this)">
+            Expand
+        </button>
+
+        <div id="code2" style="display:none;">
+<pre><code class="language-python">
+class Ball:
+    def __init__(self):
+        self.x = 0
+        self.velocity = 10
+</code></pre>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
