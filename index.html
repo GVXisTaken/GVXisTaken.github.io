@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,83 +13,132 @@ href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-d
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-<script>
-hljs.highlightAll();
-
-function toggleCode(id, button) {
-    const code = document.getElementById(id);
-
-    if (code.style.display === "none") {
-        code.style.display = "block";
-        button.innerText = "Collapse";
-    } else {
-        code.style.display = "none";
-        button.innerText = "Expand";
-    }
-}
-</script>
-
 <style>
 
 body {
+    margin: 0;
     background: #0f0f0f;
     color: white;
-    font-family: Arial;
-    margin: 0;
+    font-family: Arial, sans-serif;
 }
+
+/* HEADER */
 
 header {
     text-align: center;
-    padding: 60px;
+    padding: 70px 20px;
     background: #151515;
+    border-bottom: 1px solid #222;
 }
 
 header h1 {
-    font-size: 50px;
+    font-size: 52px;
+    margin-bottom: 10px;
 }
 
+header p {
+    color: #999;
+    font-size: 18px;
+}
+
+/* MAIN SECTION */
+
 .section {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
     padding: 40px 20px;
 }
 
+/* CARDS */
+
 .card {
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 40px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    background: #181818;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.4);
 }
 
 .card h2 {
     margin-top: 0;
+    font-size: 32px;
 }
+
+.card p {
+    color: #bbb;
+    line-height: 1.6;
+}
+
+/* MEDIA */
 
 .media {
     width: 100%;
-    border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
-button {
+/* CODE AREA */
+
+.code-container {
+    position: relative;
+    max-height: 260px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    border-radius: 12px;
+}
+
+.code-container.expanded {
+    max-height: 5000px;
+}
+
+/* FADE EFFECT */
+
+.fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+
+    background: linear-gradient(
+        rgba(15,15,15,0),
+        rgba(15,15,15,1)
+    );
+
+    pointer-events: none;
+}
+
+.code-container.expanded .fade {
+    display: none;
+}
+
+/* BUTTON */
+
+.expand-btn {
+    margin-top: 18px;
     background: #3b82f6;
     border: none;
-    padding: 12px 20px;
+    padding: 12px 22px;
+    border-radius: 10px;
     color: white;
-    border-radius: 8px;
-    cursor: pointer;
     font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-button:hover {
+.expand-btn:hover {
     opacity: 0.9;
+    transform: scale(1.02);
 }
+
+/* CODE */
 
 pre {
-    border-radius: 10px;
+    margin: 0;
+    border-radius: 12px;
     overflow-x: auto;
+    font-size: 14px;
 }
 
 </style>
@@ -98,73 +148,241 @@ pre {
 
 <header>
     <h1>My Python School Project</h1>
-    <p>Code demonstrations and showcases</p>
+    <p>
+        Interactive demonstrations and source code showcases
+    </p>
 </header>
 
 <div class="section">
 
+    <!-- ========================= -->
     <!-- CARD 1 -->
+    <!-- ========================= -->
+
     <div class="card">
+
         <h2>Face Tracking System</h2>
 
         <p>
-            This project uses MediaPipe and OpenCV to track facial movement,
-            blinking, and hand motion in real time.
+            This project uses OpenCV and MediaPipe to detect
+            face landmarks, blinking, and hand movement in real time.
         </p>
 
-        <!-- GIF -->
-        <img class="media"
-        src="YOUR_GIF_LINK_HERE">
+        <!-- GIF / IMAGE -->
+        <img class="media" src="YOUR_GIF.gif">
 
-        <button onclick="toggleCode('code1', this)">
-            Expand
-        </button>
+        <!-- CODE -->
+        <div class="code-container" id="code1">
 
-        <div id="code1" style="display:none;">
 <pre><code class="language-python">
 import cv2
 import mediapipe as mp
+import math
+import pygame
 
 cap = cv2.VideoCapture(0)
 
 while True:
+
     success, img = cap.read()
-    cv2.imshow("Camera", img)
+
+    if not success:
+        break
+
+    cv2.imshow("Camera Feed", img)
 
     if cv2.waitKey(1) == ord('q'):
         break
+
+# lots more code here...
+# lots more code here...
+# lots more code here...
+# lots more code here...
+# lots more code here...
 </code></pre>
+
+            <div class="fade"></div>
+
         </div>
+
+        <button class="expand-btn"
+        onclick="toggleCode('code1', this)">
+            Show Full Code
+        </button>
+
     </div>
 
+    <!-- ========================= -->
     <!-- CARD 2 -->
+    <!-- ========================= -->
+
     <div class="card">
+
         <h2>Physics Simulation</h2>
 
         <p>
-            Simulates object movement and collision detection.
+            A simple simulation system with gravity,
+            collision detection, and momentum calculations.
         </p>
 
         <!-- VIDEO -->
         <video class="media" controls>
-            <source src="YOUR_VIDEO_LINK.mp4" type="video/mp4">
+            <source src="YOUR_VIDEO.mp4" type="video/mp4">
         </video>
 
-        <button onclick="toggleCode('code2', this)">
-            Expand
-        </button>
+        <!-- CODE -->
+        <div class="code-container" id="code2">
 
-        <div id="code2" style="display:none;">
 <pre><code class="language-python">
 class Ball:
+
     def __init__(self):
         self.x = 0
-        self.velocity = 10
+        self.y = 0
+        self.velocity = 12
+
+    def update(self):
+        self.y += self.velocity
+
+# more code...
+# more code...
+# more code...
+# more code...
 </code></pre>
+
+            <div class="fade"></div>
+
         </div>
+
+        <button class="expand-btn"
+        onclick="toggleCode('code2', this)">
+            Show Full Code
+        </button>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- CARD 3 -->
+    <!-- ========================= -->
+
+    <div class="card">
+
+        <h2>AI Object Detection</h2>
+
+        <p>
+            Detects multiple objects in real time
+            using computer vision models.
+        </p>
+
+        <img class="media" src="YOUR_GIF2.gif">
+
+        <div class="code-container" id="code3">
+
+<pre><code class="language-python">
+import torch
+
+model = torch.hub.load(
+    'ultralytics/yolov5',
+    'yolov5s'
+)
+
+results = model(img)
+
+results.print()
+
+# more code...
+# more code...
+# more code...
+</code></pre>
+
+            <div class="fade"></div>
+
+        </div>
+
+        <button class="expand-btn"
+        onclick="toggleCode('code3', this)">
+            Show Full Code
+        </button>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- CARD 4 -->
+    <!-- ========================= -->
+
+    <div class="card">
+
+        <h2>Game Development</h2>
+
+        <p>
+            A custom Python game prototype using
+            physics and procedural generation.
+        </p>
+
+        <video class="media" controls>
+            <source src="YOUR_VIDEO2.mp4" type="video/mp4">
+        </video>
+
+        <div class="code-container" id="code4">
+
+<pre><code class="language-python">
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((800, 600))
+
+running = True
+
+while running:
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit()
+
+# more code...
+# more code...
+</code></pre>
+
+            <div class="fade"></div>
+
+        </div>
+
+        <button class="expand-btn"
+        onclick="toggleCode('code4', this)">
+            Show Full Code
+        </button>
+
     </div>
 
 </div>
+
+<script>
+
+/* SYNTAX HIGHLIGHTING */
+
+hljs.highlightAll();
+
+/* EXPAND / COLLAPSE */
+
+function toggleCode(id, button) {
+
+    const code = document.getElementById(id);
+
+    code.classList.toggle("expanded");
+
+    if (code.classList.contains("expanded")) {
+        button.innerText = "Collapse Code";
+    }
+    else {
+        button.innerText = "Show Full Code";
+    }
+}
+
+</script>
 
 </body>
 </html>
