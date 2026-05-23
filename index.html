@@ -7,7 +7,7 @@
 
 <title>Vision Core</title>
 
-<!-- Syntax Highlighting -->
+<!-- Highlight.js -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 
@@ -21,65 +21,53 @@ href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-d
 
 body {
     margin: 0;
-    background:
-    radial-gradient(circle at top left, #35135a 0%, transparent 30%),
-    radial-gradient(circle at bottom right, #1e1140 0%, transparent 30%),
-    #0b0b0f;
-
-    color: white;
     font-family: Arial, sans-serif;
+    color: white;
+
+    background:
+        radial-gradient(circle at top left, #4c1d95 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #1e1b4b 0%, transparent 40%),
+        #0b0b10;
 }
 
-/* ========================= */
 /* HEADER */
-/* ========================= */
 
 header {
     text-align: center;
-    padding: 90px 20px 70px;
-    position: relative;
+    padding: 90px 20px 50px;
 }
 
 header h1 {
-    font-size: 80px;
+    font-size: 78px;
     margin: 0;
-    background: linear-gradient(90deg, #ffffff, #b983ff);
+
+    background: linear-gradient(90deg, #ffffff, #b794f4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 header p {
-    color: #b9b9c9;
-    margin-top: 15px;
-    font-size: 18px;
+    color: #bdbdd6;
+    margin-top: 10px;
 }
 
-/* ========================= */
 /* INFO BOX */
-/* ========================= */
 
 .info-box {
     max-width: 1000px;
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    padding: 25px;
+    margin-bottom: 50px;
 
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
 
-    padding: 30px;
-    border-radius: 20px;
-
-    backdrop-filter: blur(10px);
-
-    color: #d7d7e7;
-    line-height: 1.7;
-    font-size: 18px;
+    color: #d6d6ea;
+    line-height: 1.6;
 }
 
-/* ========================= */
-/* MAIN SECTION */
-/* ========================= */
+/* SECTION */
 
 .section {
     max-width: 1100px;
@@ -87,154 +75,106 @@ header p {
     padding: 20px;
 }
 
-/* ========================= */
 /* BIG TITLES */
-/* ========================= */
 
 .big-title {
-    font-size: 52px;
-    margin-top: 90px;
-    margin-bottom: 35px;
+    font-size: 48px;
+    margin: 70px 0 25px;
 
-    background: linear-gradient(90deg, #ffffff, #b983ff);
+    background: linear-gradient(90deg, #fff, #c084fc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* ========================= */
-/* CARDS */
-/* ========================= */
+/* CARD */
 
 .card {
-    background: rgba(255,255,255,0.04);
-
+    background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08);
 
-    border-radius: 24px;
-
-    padding: 30px;
-
-    margin-bottom: 45px;
-
-    backdrop-filter: blur(8px);
-
-    box-shadow:
-    0px 0px 40px rgba(0,0,0,0.35);
+    border-radius: 22px;
+    padding: 25px;
+    margin-bottom: 40px;
 }
 
 .card h2 {
-    font-size: 34px;
     margin-top: 0;
+    font-size: 30px;
 }
 
 .card p {
-    color: #c7c7d8;
-    line-height: 1.8;
-    font-size: 17px;
+    color: #cfcfe6;
+    line-height: 1.7;
 }
 
-.small-text {
-    font-size: 14px;
-    color: #8e8ea0;
-    margin-top: 10px;
-}
-
-/* ========================= */
 /* MEDIA */
-/* ========================= */
 
 .media {
     width: 100%;
-    border-radius: 18px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-
-    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    margin: 18px 0;
 }
 
-/* ========================= */
-/* CODE */
-/* ========================= */
+/* SMALL TEXT */
+
+.small-text {
+    color: #9a9ab3;
+    font-size: 14px;
+}
+
+/* CODE BOX */
 
 .code-container {
     position: relative;
     max-height: 320px;
     overflow: hidden;
-    transition: max-height 0.5s ease;
-
-    border-radius: 18px;
+    transition: 0.5s ease;
+    border-radius: 16px;
 }
 
 .code-container.expanded {
-    max-height: 10000px;
+    max-height: 20000px;
+    overflow: visible;
 }
 
 .fade {
     position: absolute;
     bottom: 0;
     left: 0;
-
     width: 100%;
-    height: 160px;
-
-    background: linear-gradient(
-        rgba(11,11,15,0),
-        rgba(11,11,15,1)
-    );
-
-    pointer-events: none;
+    height: 140px;
+    background: linear-gradient(to bottom, transparent, #0b0b10);
 }
 
 .code-container.expanded .fade {
     display: none;
 }
 
-pre {
-    margin: 0;
-    border-radius: 18px;
-    overflow-x: auto;
-    font-size: 14px;
-}
-
-/* ========================= */
 /* BUTTON */
-/* ========================= */
 
 .expand-btn {
-    margin-top: 20px;
-
-    background:
-    linear-gradient(90deg, #7c3aed, #9333ea);
-
+    margin-top: 15px;
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
     border: none;
-
-    padding: 14px 24px;
-
-    border-radius: 12px;
-
+    padding: 12px 20px;
+    border-radius: 10px;
     color: white;
-
-    font-size: 15px;
-
     cursor: pointer;
-
-    transition: 0.2s;
 }
 
-.expand-btn:hover {
-    transform: scale(1.03);
-    opacity: 0.95;
+/* PRE */
+
+pre {
+    margin: 0;
+    overflow-x: auto;
 }
 
-/* ========================= */
 /* FOOTER */
-/* ========================= */
 
 footer {
     text-align: center;
-    padding: 60px 20px;
+    padding: 50px;
     color: #8e8ea0;
-    font-size: 15px;
 }
 
 </style>
@@ -243,1160 +183,150 @@ footer {
 <body>
 
 <header>
-
     <h1>Vision Core</h1>
-
-    <p>
-        School exhibition project by Keivan Asadi & Niranjan M
-    </p>
-
+    <p>School exhibition project by Keivan Asadi & Niranjan M</p>
 </header>
 
 <div class="info-box">
-
-    A Python program capable of tracking the user's face,
-    hands and blinks to play and interact with custom tools;
-    created via MediaPipe.
-
+    A Python program capable of tracking the user's face, hands and blinks
+    to play and interact with custom tools; created via MediaPipe.
 </div>
 
 <div class="section">
 
-    <!-- ========================= -->
-    <!-- FACE TRACKING -->
-    <!-- ========================= -->
+<!-- ================= FACE TRACKING ================= -->
 
-    <div class="big-title">Face Tracking</div>
+<div class="big-title">Face Tracking</div>
 
-    <!-- FACE MESH -->
+<div class="card">
+    <h2>Face Mesh</h2>
+    <video class="media" autoplay muted loop playsinline>
+        <source src="Facemesh(1).mp4">
+    </video>
 
-    <div class="card">
+    <p>
+        While this wasn't necessarily needed, I still thought it was really cool being able to turn your face into a digital mesh.<br><br>
+        Like a lot of the apps below, this was made possible with MediaPipe.
+    </p>
+</div>
 
-        <h2>Face Mesh</h2>
+<div class="card">
+    <h2>Blink Detection</h2>
+    <video class="media" autoplay muted loop playsinline>
+        <source src="Blinkdetect.mp4">
+    </video>
 
-        <video class="media" autoplay muted loop playsinline>
-            <source src="Facemesh(1).mp4" type="video/mp4">
-        </video>
+    <p>
+        Using MediaPipe face tracking, we can detect eye landmarks each frame and detect blinks.
+    </p>
+</div>
 
-        <p>
-            While this wasn't necessarily needed,
-            i still thought it was really cool being able
-            to turn your face into a digital mesh.
+<div class="card">
+    <h2>Flappy Bird</h2>
+    <video class="media" autoplay muted loop playsinline>
+        <source src="Flappybird.mp4">
+    </video>
 
-            <br><br>
+    <p>
+        Using blink detection, we can now play Flappy Bird just by blinking.
+    </p>
+</div>
 
-            Like a lot of the apps you'll see below,
-            this was made possible with MediaPipe.
-        </p>
+<!-- ================= HAND TRACKING ================= -->
 
+<div class="big-title">Hand Tracking</div>
+
+<div class="card">
+    <h2>Hand Mesh</h2>
+    <video class="media" autoplay muted loop playsinline>
+        <source src="Handtracking.mp4">
+    </video>
+
+    <p>
+        MediaPipe allows full hand tracking. It can even track full body pose systems, but this project focuses on hands and face.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Painting</h2>
+
+    <video class="media" autoplay muted loop playsinline>
+        <source src="Handpaint01.mp4">
+    </video>
+
+    <p>
+        Using hand gestures, we can draw in real time.<br>
+        Modes: Paint ☝️, Hover ✌️, Erase ✋
+    </p>
+
+    <video class="media" autoplay muted loop playsinline>
+        <source src="Handpaint.mp4">
+    </video>
+
+    <div class="small-text">But art was never my talent 😶‍🌫️</div>
+</div>
+
+<!-- ================= FACE DRAWING ================= -->
+
+<div class="big-title">Face Drawing</div>
+
+<div class="card">
+    <video class="media" autoplay muted loop playsinline>
+        <source src="Facedraw.mp4">
+    </video>
+
+    <p>
+        A drawing canvas projected onto the user's face using face tracking.
+    </p>
+
+    <div class="small-text">
+        This feature was rushed, hence the imperfections.
     </div>
+</div>
 
-    <!-- BLINK DETECTION -->
+<!-- ================= SOURCE CODE ================= -->
 
-    <div class="card">
+<div class="big-title">Source Code</div>
 
-        <h2>Blink Detection</h2>
+<!-- SETUP -->
+<div class="card">
 
-        <video class="media" autoplay muted loop playsinline>
-            <source src="Blinkdetect.mp4" type="video/mp4">
-        </video>
+    <h2>Setup</h2>
 
-        <p>
-            Now's where the fun begins;
-            using MediaPipe's face tracking,
-            we can track the individual points
-            around the user's eye each frame
-            to know when they blink.
-        </p>
+    <p>
+        To use this program yourself, you first need to install MediaPipe and OpenCV.
+    </p>
 
-    </div>
-
-    <!-- FLAPPY BIRD -->
-
-    <div class="card">
-
-        <h2>Flappy Bird</h2>
-
-        <video class="media" autoplay muted loop playsinline>
-            <source src="Flappybird.mp4" type="video/mp4">
-        </video>
-
-        <p>
-            Using blink detection,
-            we can now play flappy bird
-            by just blinking!
-        </p>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- HAND TRACKING -->
-    <!-- ========================= -->
-
-    <div class="big-title">Hand Tracking</div>
-
-    <!-- HAND MESH -->
-
-    <div class="card">
-
-        <h2>Hand Mesh</h2>
-
-        <video class="media" autoplay muted loop playsinline>
-            <source src="Handtracking.mp4" type="video/mp4">
-        </video>
-
-        <p>
-            We can also track the user's hand
-            using MediaPipe.
-
-            <br><br>
-
-            In fact, it's possible to track an
-            entire body using MediaPipe,
-            but you wont be seeing that here.
-        </p>
-
-    </div>
-
-    <!-- PAINTING -->
-
-    <div class="card">
-
-        <h2>Painting</h2>
-
-        <video class="media" autoplay muted loop playsinline>
-            <source src="Handpaint01.mp4" type="video/mp4">
-        </video>
-
-        <p>
-            Now, using hand tracking,
-            we can paint on the screen!
-
-            <br><br>
-
-            There are three modes;
-
-            Paint (☝️),
-            Hover (✌️)
-            and Erase (✋).
-
-            <br><br>
-
-            Using these modes,
-            we can create more complicated creations
-            as seen below.
-        </p>
-
-        <video class="media" autoplay muted loop playsinline>
-            <source src="Handpaint.mp4" type="video/mp4">
-        </video>
-
-        <div class="small-text">
-            But art was never my talent 😶‍🌫️
-        </div>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- FACE DRAWING -->
-    <!-- ========================= -->
-
-    <div class="big-title">Face Drawing</div>
-
-    <div class="card">
-
-        <video class="media" autoplay muted loop playsinline>
-            <source src="Facedraw.mp4" type="video/mp4">
-        </video>
-
-        <p>
-            To put face tracking to use,
-            we can have a canvas for the user to draw on,
-            to which it will be projected
-            on the user's face.
-        </p>
-
-        <div class="small-text">
-            This feature was a little rushed,
-            hence why it doesnt look that great.
-        </div>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- SOURCE CODE -->
-    <!-- ========================= -->
-
-    <div class="big-title">Source Code</div>
-
-    <div class="card">
-
-        <p>
-            Full Python source code for the project.
-        </p>
-
-        <div class="code-container" id="fullcode">
-
-<pre><code class="language-python">
-# PASTE YOUR ENTIRE 1000+ LINE PYTHON CODE HERE
-
-# Vision Core
-
-import cv2
-import mediapipe as mp
-import numpy as np
-import math
-import time
-import threading
-import tkinter as tk
-from tkinter import colorchooser
-import random
-
-
-ENABLE_FACE = False
-ENABLE_EYES = False
-ENABLE_HANDS = False
-ENABLE_PAINT = False
-ENABLE_BLINK = False
-ENABLE_GAME = False
-GAME_PAUSED = False
-ENABLE_FPS = False
-ENABLE_FACE_DRAW = False
-
-
-mp_face = mp.solutions.face_mesh
-mp_hands = mp.solutions.hands
-mp_draw = mp.solutions.drawing_utils
-
-face_mesh = mp_face.FaceMesh(
-    max_num_faces=1,
-    refine_landmarks=True,        # needed for iris/precise face outline
-    min_detection_confidence=0.5,
-    min_tracking_confidence=0.5
-)
-
-hands = mp_hands.Hands(
-    max_num_hands=1,
-    min_detection_confidence=0.6,
-    min_tracking_confidence=0.6
-)
-
-FACE_TESSELATION = mp_face.FACEMESH_TESSELATION
-
-# eye landmarks
-
-EYE_LANDMARKS = [
-    33, 133, 160, 158, 153, 144,
-    362, 263, 385, 387, 373, 380
-]
-
-LEFT_EYE_IDXS  = [33, 160, 158, 133, 153, 144]
-RIGHT_EYE_IDXS = [362, 385, 387, 263, 373, 380]
-
-BLINK_THRESHOLD = 0.23
-
-blink_count = 0
-blink_state = False
-
-# hand painting 
-
-canvas = []
-last_point = None
-
-# face draw overlay
-
-FACE_OVAL_IDX = [
-    10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288,
-    397, 365, 379, 378, 400, 377, 152, 148, 176, 149, 150, 136,
-    172, 58, 132, 93, 234, 127, 162, 21, 54, 103, 67, 109
-]
-
-face_draw_lock = threading.Lock()
-face_draw_strokes = []
-face_draw_current = None
-face_draw_brush_color = (0, 0, 255)
-face_draw_brush_size  = 4
-
-FACE_CANVAS_SIZE = 512
-_face_overlay_cache = None
-_face_overlay_dirty = True
-
-
-def _rebuild_face_overlay():
-    global _face_overlay_cache, _face_overlay_dirty
-    img = np.zeros((FACE_CANVAS_SIZE, FACE_CANVAS_SIZE, 4), dtype=np.uint8)
-    with face_draw_lock:
-        strokes = list(face_draw_strokes)
-        cur     = face_draw_current
-    for stroke in strokes:
-        pts = stroke["pts"]
-        col = stroke["color"]
-        th  = stroke["thickness"]
-        for i in range(1, len(pts)):
-            cv2.line(img, pts[i-1], pts[i], (*col, 255), th, cv2.LINE_AA)
-    if cur and len(cur["pts"]) > 1:
-        pts = cur["pts"]
-        col = cur["color"]
-        th  = cur["thickness"]
-        for i in range(1, len(pts)):
-            cv2.line(img, pts[i-1], pts[i], (*col, 255), th, cv2.LINE_AA)
-    _face_overlay_cache = img
-    _face_overlay_dirty = False
-
-
-def get_face_overlay():
-    global _face_overlay_dirty
-    if _face_overlay_dirty or _face_overlay_cache is None:
-        _rebuild_face_overlay()
-    return _face_overlay_cache
-
-
-def apply_face_overlay(frame, face_landmarks, frame_w, frame_h):
-    overlay_bgra = get_face_overlay()
-    if overlay_bgra is None:
-        return
-
-    lm = face_landmarks.landmark
-    S = FACE_CANVAS_SIZE - 1
-
-    forehead  = np.array([lm[10].x * frame_w,  lm[10].y * frame_h],  dtype=np.float32)
-    chin      = np.array([lm[152].x * frame_w, lm[152].y * frame_h], dtype=np.float32)
-    left_face = np.array([lm[234].x * frame_w, lm[234].y * frame_h], dtype=np.float32)
-    right_face= np.array([lm[454].x * frame_w, lm[454].y * frame_h], dtype=np.float32)
-    left_eye  = np.array([lm[33].x * frame_w,  lm[33].y * frame_h],  dtype=np.float32)
-    right_eye = np.array([lm[263].x * frame_w, lm[263].y * frame_h], dtype=np.float32)
-    nose      = np.array([lm[1].x * frame_w,   lm[1].y * frame_h],   dtype=np.float32)
-
-    center     = (forehead + chin) / 2
-    face_width = np.linalg.norm(right_face - left_face)
-    face_height= np.linalg.norm(chin - forehead)
-
-    x_axis = right_eye - left_eye
-    x_axis /= np.linalg.norm(x_axis)
-    y_axis = chin - forehead
-    y_axis /= np.linalg.norm(y_axis)
-
-    face_mid_x = (left_face[0] + right_face[0]) / 2
-    yaw = (nose[0] - face_mid_x) / (face_width / 2)
-    yaw = np.clip(yaw, -1.0, 1.0)
-
-    plane_w = face_width * 1.15
-    plane_h = face_height * 1.15
-    depth   = face_width * 0.18
-
-    tl = center + (-x_axis * plane_w/2) + (-y_axis * plane_h/2)
-    tr = center + ( x_axis * plane_w/2) + (-y_axis * plane_h/2)
-    br = center + ( x_axis * plane_w/2) + ( y_axis * plane_h/2)
-    bl = center + (-x_axis * plane_w/2) + ( y_axis * plane_h/2)
-
-    yaw_push = yaw * depth
-    if yaw > 0:
-        tr[0] -= yaw_push
-        br[0] -= yaw_push
-    else:
-        tl[0] += yaw_push
-        bl[0] += yaw_push
-
-    src_pts = np.float32([[0, 0], [S, 0], [S, S], [0, S]])
-    dst_pts = np.float32([tl, tr, br, bl])
-    M = cv2.getPerspectiveTransform(src_pts, dst_pts)
-
-    warped = cv2.warpPerspective(
-        overlay_bgra, M, (frame_w, frame_h),
-        flags=cv2.INTER_LINEAR,
-        borderMode=cv2.BORDER_CONSTANT,
-        borderValue=(0, 0, 0, 0)
-    )
-
-    alpha   = warped[:, :, 3:4].astype(np.float32) / 255.0
-    bgr     = warped[:, :, :3].astype(np.float32)
-    frame_f = frame.astype(np.float32)
-    blended = frame_f * (1 - alpha) + bgr * alpha
-    frame[:] = blended.astype(np.uint8)
-
-
-# face drawing win
-
-def _get_canonical_face_points(size=200):
-    oval = [
-        (0.50, 0.05), (0.60, 0.06), (0.70, 0.10), (0.78, 0.17),
-        (0.83, 0.27), (0.85, 0.38), (0.84, 0.50), (0.82, 0.62),
-        (0.78, 0.73), (0.71, 0.82), (0.62, 0.88), (0.50, 0.92),
-        (0.38, 0.88), (0.29, 0.82), (0.22, 0.73), (0.18, 0.62),
-        (0.16, 0.50), (0.17, 0.38), (0.22, 0.27), (0.30, 0.17),
-        (0.40, 0.10), (0.50, 0.05),
-    ]
-    left_eye  = (0.36, 0.37, 0.09, 0.04)
-    right_eye = (0.64, 0.37, 0.09, 0.04)
-    left_brow  = [(0.28, 0.30), (0.36, 0.27), (0.44, 0.29)]
-    right_brow = [(0.56, 0.29), (0.64, 0.27), (0.72, 0.30)]
-    nose = [(0.50, 0.43), (0.50, 0.55), (0.44, 0.58), (0.56, 0.58)]
-    mouth = [(0.38, 0.70), (0.50, 0.68), (0.62, 0.70),
-             (0.50, 0.77), (0.38, 0.70)]
-    return {
-        "oval": oval,
-        "left_eye": left_eye,
-        "right_eye": right_eye,
-        "left_brow": left_brow,
-        "right_brow": right_brow,
-        "nose": nose,
-        "mouth": mouth,
-    }
-
-
-def _draw_face_preview(canvas_widget, preview_size):
-    canvas_widget.delete("face_preview")
-    s = preview_size
-    fp = _get_canonical_face_points()
-
-    def px(nx, ny):
-        return int(nx * s), int(ny * s)
-
-    oval_pts = [px(x, y) for x, y in fp["oval"]]
-    flat = [v for pt in oval_pts for v in pt]
-    canvas_widget.create_polygon(flat, outline="#aaffaa", fill="", width=1.5,
-                                 tags="face_preview")
-
-    for ey in [fp["left_eye"], fp["right_eye"]]:
-        cx, cy, rx, ry = ey
-        x0, y0 = px(cx - rx, cy - ry)
-        x1, y1 = px(cx + rx, cy + ry)
-        canvas_widget.create_oval(x0, y0, x1, y1, outline="#aaffaa", fill="",
-                                  width=1.5, tags="face_preview")
-
-    for brow in [fp["left_brow"], fp["right_brow"]]:
-        bpts = [px(x, y) for x, y in brow]
-        for i in range(len(bpts) - 1):
-            canvas_widget.create_line(*bpts[i], *bpts[i+1],
-                                      fill="#aaffaa", width=1.5,
-                                      tags="face_preview")
-
-    npts = [px(x, y) for x, y in fp["nose"]]
-    for i in range(len(npts) - 1):
-        canvas_widget.create_line(*npts[i], *npts[i+1],
-                                  fill="#aaffaa", width=1.5,
-                                  tags="face_preview")
-
-    mpts = [px(x, y) for x, y in fp["mouth"]]
-    flat_m = [v for pt in mpts for v in pt]
-    canvas_widget.create_polygon(flat_m, outline="#aaffaa", fill="",
-                                 width=1.5, tags="face_preview")
-
-    corners = [
-        (0.10, 0.05, "TL"),
-        (0.90, 0.05, "TR"),
-        (0.90, 0.97, "BR"),
-        (0.10, 0.97, "BL"),
-    ]
-    for nx, ny, label in corners:
-        cx2, cy2 = px(nx, ny)
-        canvas_widget.create_oval(cx2 - 4, cy2 - 4, cx2 + 4, cy2 + 4,
-                                  outline="#ff9900", fill="#ff9900",
-                                  tags="face_preview")
-        canvas_widget.create_text(cx2, cy2 - 10, text=label,
-                                  fill="#ff9900",
-                                  font=("Courier New", 6, "bold"),
-                                  tags="face_preview")
-
-
-def open_face_draw_window():
-    global face_draw_brush_color, face_draw_brush_size
-    global face_draw_strokes, face_draw_current, _face_overlay_dirty
-
-    win = tk.Toplevel()
-    win.title("Face Drawing Canvas")
-    win.configure(bg="#1a1a2e")
-    win.resizable(False, False)
-
-    DRAW_SIZE    = FACE_CANVAS_SIZE
-    PREVIEW_SIZE = 200
-
-    hdr = tk.Label(win, text="✏️  Draw on Your Face",
-                   bg="#1a1a2e", fg="#e0e0ff",
-                   font=("Courier New", 13, "bold"))
-    hdr.pack(pady=(8, 2))
-
-    sub = tk.Label(win,
-                   text="Drawing is warped onto your live face via MediaPipe",
-                   bg="#1a1a2e", fg="#7070aa",
-                   font=("Courier New", 8))
-    sub.pack()
-
-    main_row = tk.Frame(win, bg="#1a1a2e")
-    main_row.pack(padx=10, pady=8)
-
-    draw_canvas = tk.Canvas(main_row, width=DRAW_SIZE, height=DRAW_SIZE,
-                            bg="#0d0d1a", cursor="crosshair",
-                            highlightthickness=1, highlightbackground="#3030aa")
-    draw_canvas.pack(side="left", padx=(0, 10))
-
-    right_panel = tk.Frame(main_row, bg="#1a1a2e")
-    right_panel.pack(side="left", fill="y")
-
-    pk_lbl = tk.Label(right_panel, text="Face Preview",
-                      bg="#1a1a2e", fg="#9090cc",
-                      font=("Courier New", 9, "bold"))
-    pk_lbl.pack(pady=(0, 4))
-
-    preview_canvas = tk.Canvas(right_panel, width=PREVIEW_SIZE,
-                               height=PREVIEW_SIZE,
-                               bg="#0d0d1a", highlightthickness=1,
-                               highlightbackground="#3030aa")
-    preview_canvas.pack()
-    _draw_face_preview(preview_canvas, PREVIEW_SIZE)
-
-    swatch_frame = tk.Frame(right_panel, bg="#1a1a2e")
-    swatch_frame.pack(pady=(14, 4))
-
-    swatch_lbl = tk.Label(swatch_frame, text="Brush Colour",
-                          bg="#1a1a2e", fg="#9090cc",
-                          font=("Courier New", 9))
-    swatch_lbl.pack()
-
-    b, g, r = face_draw_brush_color
-    hex_col = f"#{r:02x}{g:02x}{b:02x}"
-    swatch = tk.Canvas(swatch_frame, width=60, height=30,
-                       bg=hex_col, highlightthickness=1,
-                       highlightbackground="#555588", cursor="hand2")
-    swatch.pack(pady=3)
-
-    def pick_color():
-        global face_draw_brush_color
-        rgb, hex_c = colorchooser.askcolor(
-            title="Pick Brush Colour",
-            initialcolor=f"#{face_draw_brush_color[2]:02x}"
-                         f"{face_draw_brush_color[1]:02x}"
-                         f"{face_draw_brush_color[0]:02x}"
-        )
-        if rgb:
-            r2, g2, b2 = [int(v) for v in rgb]
-            face_draw_brush_color = (b2, g2, r2)
-            swatch.configure(bg=hex_c)
-
-    swatch.bind("<Button-1>", lambda e: pick_color())
-
-    preset_row = tk.Frame(right_panel, bg="#1a1a2e")
-    preset_row.pack(pady=4)
-    preset_colors = [
-        ("🔴", (0, 0, 255)),
-        ("🟢", (0, 200, 0)),
-        ("🔵", (255, 80, 0)),
-        ("⚫", (10, 10, 10)),
-        ("⚪", (240, 240, 240)),
-        ("🟡", (0, 230, 230)),
-        ("🟣", (180, 0, 180)),
-        ("🟠", (0, 140, 255)),
-    ]
-    for emoji, bgr in preset_colors:
-        r2, g2, b2 = bgr[2], bgr[1], bgr[0]
-        hex_p = f"#{r2:02x}{g2:02x}{b2:02x}"
-        def make_set(c=bgr, h=hex_p):
-            def _set(e=None):
-                global face_draw_brush_color
-                face_draw_brush_color = c
-                swatch.configure(bg=h)
-            return _set
-        b_btn = tk.Label(preset_row, text=emoji, bg="#1a1a2e",
-                         font=("Arial", 14), cursor="hand2")
-        b_btn.pack(side="left")
-        b_btn.bind("<Button-1>", make_set())
-
-    size_lbl = tk.Label(right_panel, text="Brush Size",
-                        bg="#1a1a2e", fg="#9090cc",
-                        font=("Courier New", 9))
-    size_lbl.pack(pady=(12, 2))
-
-    size_var = tk.IntVar(value=face_draw_brush_size)
-    size_slider = tk.Scale(right_panel, from_=1, to=20,
-                           orient="horizontal", variable=size_var,
-                           bg="#1a1a2e", fg="#e0e0ff",
-                           troughcolor="#3030aa",
-                           highlightthickness=0, length=160)
-    size_slider.pack()
-
-    def on_size_change(val):
-        global face_draw_brush_size
-        face_draw_brush_size = int(val)
-    size_slider.config(command=on_size_change)
-
-    btn_frame = tk.Frame(right_panel, bg="#1a1a2e")
-    btn_frame.pack(pady=(16, 4), fill="x")
-
-    def clear_all():
-        global face_draw_strokes, _face_overlay_dirty
-        with face_draw_lock:
-            face_draw_strokes.clear()
-        _face_overlay_dirty = True
-        draw_canvas.delete("stroke")
-
-    def undo_last():
-        global face_draw_strokes, _face_overlay_dirty
-        with face_draw_lock:
-            if face_draw_strokes:
-                face_draw_strokes.pop()
-        _face_overlay_dirty = True
-        _redraw_all()
-
-    tk.Button(btn_frame, text="Undo", command=undo_last,
-              bg="#2a2a4a", fg="#e0e0ff",
-              font=("Courier New", 9, "bold"),
-              relief="flat", padx=8).pack(fill="x", pady=2)
-    tk.Button(btn_frame, text="Clear All", command=clear_all,
-              bg="#3a1a1a", fg="#ff9090",
-              font=("Courier New", 9, "bold"),
-              relief="flat", padx=8).pack(fill="x", pady=2)
-
-    def _redraw_all():
-        draw_canvas.delete("stroke")
-        with face_draw_lock:
-            strokes = list(face_draw_strokes)
-            cur = face_draw_current
-        for stroke in strokes:
-            pts = stroke["pts"]
-            b_, g_, r_ = stroke["color"]
-            hex_c = f"#{r_:02x}{g_:02x}{b_:02x}"
-            th = stroke["thickness"]
-            for i in range(1, len(pts)):
-                draw_canvas.create_line(pts[i-1][0], pts[i-1][1],
-                                        pts[i][0],   pts[i][1],
-                                        fill=hex_c, width=th,
-                                        capstyle="round", joinstyle="round",
-                                        tags="stroke")
-        if cur and len(cur["pts"]) > 1:
-            b_, g_, r_ = cur["color"]
-            hex_c = f"#{r_:02x}{g_:02x}{b_:02x}"
-            th = cur["thickness"]
-            pts = cur["pts"]
-            for i in range(1, len(pts)):
-                draw_canvas.create_line(pts[i-1][0], pts[i-1][1],
-                                        pts[i][0],   pts[i][1],
-                                        fill=hex_c, width=th,
-                                        capstyle="round", joinstyle="round",
-                                        tags="stroke")
-
-    def on_press(event):
-        global face_draw_current, _face_overlay_dirty
-        face_draw_current = {
-            "pts": [(event.x, event.y)],
-            "color": face_draw_brush_color,
-            "thickness": face_draw_brush_size,
-        }
-        _face_overlay_dirty = True
-
-    def on_drag(event):
-        global face_draw_current, _face_overlay_dirty
-        if face_draw_current is None:
-            return
-        face_draw_current["pts"].append((event.x, event.y))
-        _face_overlay_dirty = True
-        pts = face_draw_current["pts"]
-        if len(pts) >= 2:
-            b_, g_, r_ = face_draw_current["color"]
-            hex_c = f"#{r_:02x}{g_:02x}{b_:02x}"
-            th = face_draw_current["thickness"]
-            draw_canvas.create_line(pts[-2][0], pts[-2][1],
-                                    pts[-1][0], pts[-1][1],
-                                    fill=hex_c, width=th,
-                                    capstyle="round", joinstyle="round",
-                                    tags="stroke")
-
-    def on_release(event):
-        global face_draw_current, _face_overlay_dirty
-        if face_draw_current and len(face_draw_current["pts"]) > 1:
-            with face_draw_lock:
-                face_draw_strokes.append(face_draw_current)
-        face_draw_current = None
-        _face_overlay_dirty = True
-
-    draw_canvas.bind("<ButtonPress-1>", on_press)
-    draw_canvas.bind("<B1-Motion>",     on_drag)
-    draw_canvas.bind("<ButtonRelease-1>", on_release)
-
-    win.bind("<Control-z>", lambda e: undo_last())
-    win.bind("<Control-Z>", lambda e: undo_last())
-    win.bind("<Delete>",    lambda e: clear_all())
-
-    hint = tk.Label(win,
-                    text="Tip: Canvas corners → face corners (top-left=left-brow, top-right=right-brow, bottom=jaw/chin)",
-                    bg="#1a1a2e", fg="#505080",
-                    font=("Courier New", 7))
-    hint.pack(pady=(0, 6))
-
-    win.mainloop()
-
-
-# Flappy bird
-
-GAME_W = 500
-GAME_H = 700
-
-bird_x = 120
-bird_y = 350
-
-velocity      = 0
-gravity       = 0.6
-jump_strength = -8
-
-pipe_width = 80
-pipe_gap   = 180
-pipe_speed = 5
-
-pipes = []
-
-score      = 0
-high_score = 0
-game_over  = False
-
-
-def dist(a, b):
-    return math.dist(a, b)
-
-
-def eye_aspect_ratio(lm, idxs, w, h):
-    pts = [(int(lm[i].x * w), int(lm[i].y * h)) for i in idxs]
-    v1  = dist(pts[1], pts[5])
-    v2  = dist(pts[2], pts[4])
-    h1  = dist(pts[0], pts[3])
-    return (v1 + v2) / (2.0 * h1)
-
-
-def finger_up(lm, tip, pip):
-    return lm[tip].y < lm[pip].y
-
-def detect_gesture(lm):
-    index  = finger_up(lm, 8,  6)
-    middle = finger_up(lm, 12, 10)
-    ring   = finger_up(lm, 16, 14)
-    pinky  = finger_up(lm, 20, 18)
-
-    if index and not middle and not ring and not pinky:
-        return "paint"
-    elif index and middle and not ring and not pinky:
-        return "hover"
-    elif index and middle and ring and pinky:
-        return "erase"
-    return "none"
-
-
-def reset_game():
-    global bird_y, velocity, pipes, score, game_over
-    bird_y    = 350
-    velocity  = 0
-    pipes     = []
-    score     = 0
-    game_over = False
-
-def create_pipe():
-    gap_y = random.randint(180, GAME_H - 180)
-    pipes.append({"x": GAME_W, "gap_y": gap_y, "passed": False})
-
-def rect_collision(a, b):
-    ax, ay, aw, ah = a
-    bx, by, bw, bh = b
-    return (ax < bx + bw and ax + aw > bx and
-            ay < by + bh and ay + ah > by)
-
-def update_game():
-    global bird_y, velocity, game_over, score, high_score
-    if GAME_PAUSED or game_over:
-        return
-
-    velocity += gravity
-    bird_y   += velocity
-
-    if bird_y > GAME_H or bird_y < 0:
-        game_over = True
-
-    if len(pipes) == 0 or pipes[-1]["x"] < GAME_W - 333:
-        create_pipe()
-
-    for pipe in pipes:
-        pipe["x"] -= pipe_speed
-
-    pipes[:] = [p for p in pipes if p["x"] > -pipe_width]
-
-    for pipe in pipes:
-        top_rect    = (pipe["x"], 0, pipe_width, pipe["gap_y"] - pipe_gap // 2)
-        bottom_rect = (pipe["x"], pipe["gap_y"] + pipe_gap // 2, pipe_width, GAME_H)
-        bird_rect   = (bird_x - 20, int(bird_y) - 20, 40, 40)
-
-        if rect_collision(bird_rect, top_rect) or rect_collision(bird_rect, bottom_rect):
-            game_over = True
-
-        if not pipe["passed"] and pipe["x"] < bird_x:
-            pipe["passed"] = True
-            score += 1
-            if score > high_score:
-                high_score = score
-
-
-def draw_bird(frame, x, y):
-    cv2.circle(frame, (x, y), 18, (0, 255, 255), -1)
-    cv2.ellipse(frame, (x - 5, y + 5), (10, 7), 0, 0, 180, (0, 200, 255), -1)
-    cv2.circle(frame, (x + 6, y - 5), 3, (255, 255, 255), -1)
-    cv2.circle(frame, (x + 7, y - 5), 1, (0, 0, 0), -1)
-    pts = np.array([[x + 15, y], [x + 25, y - 4], [x + 25, y + 4]])
-    cv2.fillPoly(frame, [pts], (0, 140, 255))
-
-
-def draw_game():
-    game_frame = np.zeros((GAME_H, GAME_W, 3), dtype=np.uint8)
-    game_frame[:] = (255, 220, 160)
-
-    pts_mountain = np.array(
-        [[0, 700], [0, 480], [120, 390], [250, 490],
-         [390, 370], [500, 460], [500, 700]], np.int32)
-    cv2.fillPoly(game_frame, [pts_mountain], (165, 140, 130))
-    cv2.circle(game_frame, (120, 760), 220, (115, 185, 115), -1)
-    cv2.circle(game_frame, (380, 790), 260, (90, 160, 90), -1)
-
-    for pipe in pipes:
-        x     = pipe["x"]
-        gap_y = pipe["gap_y"]
-        top_pipe_end       = gap_y - pipe_gap // 2
-        bottom_pipe_start  = gap_y + pipe_gap // 2
-
-        cv2.rectangle(game_frame, (x + 5, 0), (x + pipe_width - 5, top_pipe_end - 25),
-                      (0, 190, 0), -1)
-        cv2.rectangle(game_frame, (x + 5, 0), (x + pipe_width - 5, top_pipe_end - 25),
-                      (0, 90, 0), 2)
-        cv2.rectangle(game_frame, (x, top_pipe_end - 25), (x + pipe_width, top_pipe_end),
-                      (0, 220, 0), -1)
-        cv2.rectangle(game_frame, (x, top_pipe_end - 25), (x + pipe_width, top_pipe_end),
-                      (0, 90, 0), 2)
-
-        cv2.rectangle(game_frame, (x + 5, bottom_pipe_start + 25), (x + pipe_width - 5, GAME_H),
-                      (0, 190, 0), -1)
-        cv2.rectangle(game_frame, (x + 5, bottom_pipe_start + 25), (x + pipe_width - 5, GAME_H),
-                      (0, 90, 0), 2)
-        cv2.rectangle(game_frame, (x, bottom_pipe_start), (x + pipe_width, bottom_pipe_start + 25),
-                      (0, 220, 0), -1)
-        cv2.rectangle(game_frame, (x, bottom_pipe_start), (x + pipe_width, bottom_pipe_start + 25),
-                      (0, 90, 0), 2)
-
-    draw_bird(game_frame, bird_x, int(bird_y))
-
-    cv2.putText(game_frame, f"Score: {score}", (20, 50),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
-    cv2.putText(game_frame, f"Best: {high_score}", (20, 90),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.75, (220, 255, 220), 2)
-
-    if GAME_PAUSED:
-        overlay = game_frame.copy()
-        cv2.rectangle(overlay, (0, 0), (GAME_W, GAME_H), (0, 0, 0), -1)
-        cv2.addWeighted(overlay, 0.65, game_frame, 0.35, 0, game_frame)
-        cv2.putText(game_frame, "GAME PAUSED", (110, 350),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 255, 255), 3)
-
-    if game_over:
-        cv2.putText(game_frame, "GAME OVER", (110, 260),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255), 4)
-        cv2.putText(game_frame, "Blink To Restart", (100, 320),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-
-    cv2.imshow("Flappy Bird AI", game_frame)
-
-
-def ui():
-    root = tk.Tk()
-    root.title("Control Panel")
-    root.geometry("280x500")
-    root.resizable(False, False)
-    root.configure(bg="#1a1a2e")
-
-    btn_dict = {}
-
-    def toggle(name, display_text):
-        globals()[name] = not globals()[name]
-        state_str = "ON"  if globals()[name] else "OFF"
-        color     = "lime" if globals()[name] else "tomato"
-        btn_dict[name].config(text=f"{display_text}: {state_str}", fg=color)
-
-    def reset_canvas():
-        global canvas
-        canvas = []
-
-    buttons = [
-        ("Face Mesh",          "ENABLE_FACE"),
-        ("Eye Mesh",           "ENABLE_EYES"),
-        ("Hand Tracking",      "ENABLE_HANDS"),
-        ("Painting",           "ENABLE_PAINT"),
-        ("Blink Detection",    "ENABLE_BLINK"),
-        ("Flappy Bird",        "ENABLE_GAME"),
-        ("Pause Game",         "GAME_PAUSED"),
-        ("FPS Counter",        "ENABLE_FPS"),
-        ("Face Draw Overlay",  "ENABLE_FACE_DRAW"),
-    ]
-
-    title_lbl = tk.Label(root, text="Control Panel",
-                         bg="#1a1a2e", fg="#e0e0ff",
-                         font=("Courier New", 12, "bold"))
-    title_lbl.pack(pady=(10, 6))
-
-    for text, var in buttons:
-        state_str = "ON"   if globals()[var] else "OFF"
-        color     = "lime" if globals()[var] else "tomato"
-        btn = tk.Button(
-            root,
-            text=f"{text}: {state_str}",
-            fg=color,
-            bg="#12122a",
-            activebackground="#20204a",
-            font=("Courier New", 9, "bold"),
-            bd=0, relief="flat", pady=4
-        )
-        btn.config(command=lambda v=var, t=text: toggle(v, t))
-        btn.pack(fill="x", pady=3, padx=15)
-        btn_dict[var] = btn
-
-    tk.Frame(root, height=1, bg="#3030aa").pack(fill="x", pady=8, padx=15)
-
-    reset_btn = tk.Button(
-        root, text="Reset Paint Canvas",
-        command=reset_canvas,
-        bg="#2a1a1a", fg="#ff9090",
-        activebackground="#3a2020",
-        font=("Courier New", 9, "bold"),
-        bd=0, relief="flat", pady=4
-    )
-    reset_btn.pack(fill="x", pady=3, padx=15)
-
-    face_draw_btn = tk.Button(
-        root, text="✏️  Open Face Draw Editor",
-        command=lambda: threading.Thread(
-            target=open_face_draw_window, daemon=True).start(),
-        bg="#1a2a1a", fg="#90ff90",
-        activebackground="#2a3a2a",
-        font=("Courier New", 9, "bold"),
-        bd=0, relief="flat", pady=4
-    )
-    face_draw_btn.pack(fill="x", pady=3, padx=15)
-
-    root.mainloop()
-
-
-cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 960)
-
-fps_time = time.time()
-
-
-FACE_MESH_WIN = "Face Mesh"
-
-
-def run():
-    global blink_count, blink_state, last_point, canvas, velocity, fps_time
-
-    while True:
-        success, frame = cap.read()
-        if not success:
-            break
-
-        frame = cv2.flip(frame, 1)
-        h, w, _ = frame.shape
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-        face_results = None
-        hand_results = None
-
-        if ENABLE_FACE or ENABLE_EYES or ENABLE_BLINK or ENABLE_FACE_DRAW:
-            face_results = face_mesh.process(rgb)
-
-        if ENABLE_HANDS:
-            hand_results = hands.process(rgb)
-
-        # ── Face Mesh → webcam frame + dedicated black window ────────────
-        if ENABLE_FACE:
-            if face_results and face_results.multi_face_landmarks:
-                mesh_frame = np.zeros((h, w, 3), dtype=np.uint8)
-                for face in face_results.multi_face_landmarks:
-                    # Draw on the pure-black separate window
-                    mp_draw.draw_landmarks(
-                        mesh_frame, face, FACE_TESSELATION,
-                        landmark_drawing_spec=None,
-                        connection_drawing_spec=mp_draw.DrawingSpec(
-                            color=(0, 255, 0), thickness=1)
-                    )
-                    # Also draw on the live webcam frame
-                    mp_draw.draw_landmarks(
-                        frame, face, FACE_TESSELATION,
-                        landmark_drawing_spec=None,
-                        connection_drawing_spec=mp_draw.DrawingSpec(
-                            color=(0, 255, 0), thickness=1)
-                    )
-                # Crop tightly around the face so it fills the small window
-                lm0 = face_results.multi_face_landmarks[0].landmark
-                xs = [int(p.x * w) for p in lm0]
-                ys = [int(p.y * h) for p in lm0]
-                pad = 30
-                x1 = max(min(xs) - pad, 0)
-                y1 = max(min(ys) - pad, 0)
-                x2 = min(max(xs) + pad, w)
-                y2 = min(max(ys) + pad, h)
-                cropped = mesh_frame[y1:y2, x1:x2]
-                if cropped.size > 0:
-                    ch, cw = cropped.shape[:2]
-                    scale = min(400 / cw, 300 / ch)
-                    nw, nh = int(cw * scale), int(ch * scale)
-                    resized = cv2.resize(cropped, (nw, nh))
-                    small = np.zeros((300, 400, 3), dtype=np.uint8)
-                    y_off = (300 - nh) // 2
-                    x_off = (400 - nw) // 2
-                    small[y_off:y_off+nh, x_off:x_off+nw] = resized
-                else:
-                    small = cv2.resize(mesh_frame, (400, 300))
-                cv2.imshow(FACE_MESH_WIN, small)
-            else:
-                cv2.imshow(FACE_MESH_WIN, np.zeros((300, 400, 3), dtype=np.uint8))
-        else:
-            try:
-                cv2.destroyWindow(FACE_MESH_WIN)
-            except cv2.error:
-                pass
-
-        # ── Unconnected Eye Mesh (still on webcam frame) ─────────────────
-        if ENABLE_EYES and face_results and face_results.multi_face_landmarks:
-            lm = face_results.multi_face_landmarks[0].landmark
-            for i in EYE_LANDMARKS:
-                x_ = int(lm[i].x * w)
-                y_ = int(lm[i].y * h)
-                cv2.circle(frame, (x_, y_), 2, (255, 255, 0), -1)
-
-        # ── Blink Processing ──────────────────────────────────────────────
-        if ENABLE_BLINK and face_results and face_results.multi_face_landmarks:
-            lm = face_results.multi_face_landmarks[0].landmark
-            left_ear  = eye_aspect_ratio(lm, LEFT_EYE_IDXS, w, h)
-            right_ear = eye_aspect_ratio(lm, RIGHT_EYE_IDXS, w, h)
-            ear = (left_ear + right_ear) / 2.0
-
-            blinked = False
-            if ear < BLINK_THRESHOLD:
-                if not blink_state:
-                    blink_count += 1
-                    blink_state  = True
-                    blinked      = True
-            else:
-                blink_state = False
-
-            cv2.putText(frame, f"Blinks: {blink_count}", (20, 40),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 2)
-
-            if ENABLE_GAME:
-                if not game_over and blinked:
-                    velocity = jump_strength
-                elif game_over and blinked:
-                    reset_game()
-
-        # ── Face Drawing Overlay ──────────────────────────────────────────
-        if ENABLE_FACE_DRAW and face_results and face_results.multi_face_landmarks:
-            apply_face_overlay(frame,
-                               face_results.multi_face_landmarks[0],
-                               w, h)
-
-        # ── Hands + Paint ─────────────────────────────────────────────────
-        if ENABLE_HANDS and hand_results and hand_results.multi_hand_landmarks:
-            for hand in hand_results.multi_hand_landmarks:
-                lm = hand.landmark
-                mp_draw.draw_landmarks(frame, hand, mp_hands.HAND_CONNECTIONS)
-
-                x_ = int(lm[8].x * w)
-                y_ = int(lm[8].y * h)
-                current_gesture = detect_gesture(lm)
-
-                if ENABLE_PAINT and current_gesture == "paint":
-                    if last_point is not None:
-                        canvas.append((last_point, (x_, y_)))
-                    last_point = (x_, y_)
-                elif current_gesture == "hover":
-                    last_point = None
-                elif current_gesture == "erase":
-                    eraser     = (x_, y_)
-                    new_canvas = []
-                    for p1, p2 in canvas:
-                        mx = (p1[0] + p2[0]) // 2
-                        my = (p1[1] + p2[1]) // 2
-                        if dist((mx, my), eraser) > 35:
-                            new_canvas.append((p1, p2))
-                    canvas = new_canvas
-                    cv2.circle(frame, eraser, 20, (0, 0, 255), 2)
-                    last_point = None
-                else:
-                    last_point = None
-
-        # Draw Paint Canvas
-        for p1, p2 in canvas:
-            cv2.line(frame, p1, p2, (0, 0, 255), 3)
-
-        # ── FPS ───────────────────────────────────────────────────────────
-        current_time = time.time()
-        fps      = 1 / (current_time - fps_time)
-        fps_time = current_time
-
-        if ENABLE_FPS:
-            cv2.putText(frame, f"FPS: {int(fps)}", (20, 80),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
-
-        # ── Game ──────────────────────────────────────────────────────────
-        if ENABLE_GAME:
-            update_game()
-            draw_game()
-        else:
-            try:
-                cv2.destroyWindow("Flappy Bird AI")
-            except cv2.error:
-                pass
-
-        cv2.imshow("Webcam Feed", frame)
-
-        key = cv2.waitKey(1)
-        if key == 27:   # ESC
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
-# startup
-threading.Thread(target=ui, daemon=True).start()
-run()
-cap.release()
+<pre><code class="language-bash">
+pip install mediapipe opencv-python pygame
 </code></pre>
 
-            <div class="fade"></div>
-
-        </div>
-
-        <button class="expand-btn"
-        onclick="toggleCode('fullcode', this)">
-            Show Full Code
-        </button>
-
+    <div class="small-text">
+        Make sure you use Python 3.10 to get this working.
     </div>
 
 </div>
 
+<!-- FULL CODE -->
+<div class="card">
+
+    <h2>Full Source Code</h2>
+
+<pre><code class="language-python">
+# PASTE YOUR FULL 1000+ LINE CODE HERE
+print("Vision Core")
+</code></pre>
+
+</div>
+
+</div>
+
 <footer>
-    Vision Core • MediaPipe + Python
+    Vision Core Project
 </footer>
 
 <script>
-
 hljs.highlightAll();
-
-function toggleCode(id, button) {
-
-    const code = document.getElementById(id);
-
-    code.classList.toggle("expanded");
-
-    if (code.classList.contains("expanded")) {
-        button.innerText = "Collapse Code";
-    }
-    else {
-        button.innerText = "Show Full Code";
-    }
-}
-
 </script>
 
 </body>
