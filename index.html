@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Python Project</title>
+<title>Vision Core</title>
 
-<!-- Highlight.js -->
+<!-- Syntax Highlighting -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 
@@ -15,95 +15,171 @@ href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-d
 
 <style>
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background: #0f0f0f;
+    background:
+    radial-gradient(circle at top left, #35135a 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #1e1140 0%, transparent 30%),
+    #0b0b0f;
+
     color: white;
     font-family: Arial, sans-serif;
 }
 
+/* ========================= */
 /* HEADER */
+/* ========================= */
 
 header {
     text-align: center;
-    padding: 70px 20px;
-    background: #151515;
-    border-bottom: 1px solid #222;
+    padding: 90px 20px 70px;
+    position: relative;
 }
 
 header h1 {
-    font-size: 52px;
-    margin-bottom: 10px;
+    font-size: 80px;
+    margin: 0;
+    background: linear-gradient(90deg, #ffffff, #b983ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header p {
-    color: #999;
+    color: #b9b9c9;
+    margin-top: 15px;
     font-size: 18px;
 }
 
+/* ========================= */
+/* INFO BOX */
+/* ========================= */
+
+.info-box {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    padding: 30px;
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    color: #d7d7e7;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* ========================= */
 /* MAIN SECTION */
+/* ========================= */
 
 .section {
     max-width: 1100px;
     margin: auto;
-    padding: 40px 20px;
+    padding: 20px;
 }
 
+/* ========================= */
+/* BIG TITLES */
+/* ========================= */
+
+.big-title {
+    font-size: 52px;
+    margin-top: 90px;
+    margin-bottom: 35px;
+
+    background: linear-gradient(90deg, #ffffff, #b983ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ========================= */
 /* CARDS */
+/* ========================= */
 
 .card {
-    background: #181818;
-    border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 24px;
+
     padding: 30px;
-    margin-bottom: 50px;
-    box-shadow: 0px 0px 25px rgba(0,0,0,0.4);
+
+    margin-bottom: 45px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+    0px 0px 40px rgba(0,0,0,0.35);
 }
 
 .card h2 {
+    font-size: 34px;
     margin-top: 0;
-    font-size: 32px;
 }
 
 .card p {
-    color: #bbb;
-    line-height: 1.6;
+    color: #c7c7d8;
+    line-height: 1.8;
+    font-size: 17px;
 }
 
+.small-text {
+    font-size: 14px;
+    color: #8e8ea0;
+    margin-top: 10px;
+}
+
+/* ========================= */
 /* MEDIA */
+/* ========================= */
 
 .media {
     width: 100%;
-    border-radius: 12px;
-    margin-top: 20px;
+    border-radius: 18px;
+    margin-top: 25px;
     margin-bottom: 25px;
+
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* CODE AREA */
+/* ========================= */
+/* CODE */
+/* ========================= */
 
 .code-container {
     position: relative;
-    max-height: 260px;
+    max-height: 320px;
     overflow: hidden;
     transition: max-height 0.5s ease;
-    border-radius: 12px;
+
+    border-radius: 18px;
 }
 
 .code-container.expanded {
-    max-height: 5000px;
+    max-height: 10000px;
 }
-
-/* FADE EFFECT */
 
 .fade {
     position: absolute;
     bottom: 0;
     left: 0;
+
     width: 100%;
-    height: 140px;
+    height: 160px;
 
     background: linear-gradient(
-        rgba(15,15,15,0),
-        rgba(15,15,15,1)
+        rgba(11,11,15,0),
+        rgba(11,11,15,1)
     );
 
     pointer-events: none;
@@ -113,32 +189,52 @@ header p {
     display: none;
 }
 
+pre {
+    margin: 0;
+    border-radius: 18px;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+/* ========================= */
 /* BUTTON */
+/* ========================= */
 
 .expand-btn {
-    margin-top: 18px;
-    background: #3b82f6;
+    margin-top: 20px;
+
+    background:
+    linear-gradient(90deg, #7c3aed, #9333ea);
+
     border: none;
-    padding: 12px 22px;
-    border-radius: 10px;
+
+    padding: 14px 24px;
+
+    border-radius: 12px;
+
     color: white;
+
     font-size: 15px;
+
     cursor: pointer;
+
     transition: 0.2s;
 }
 
 .expand-btn:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
+    transform: scale(1.03);
+    opacity: 0.95;
 }
 
-/* CODE */
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 
-pre {
-    margin: 0;
-    border-radius: 12px;
-    overflow-x: auto;
-    font-size: 14px;
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    color: #8e8ea0;
+    font-size: 15px;
 }
 
 </style>
@@ -147,58 +243,211 @@ pre {
 <body>
 
 <header>
-    <h1>My Python School Project</h1>
+
+    <h1>Vision Core</h1>
+
     <p>
-        Interactive demonstrations and source code showcases
+        School exhibition project by Keivan Asadi & Niranjan M
     </p>
+
 </header>
+
+<div class="info-box">
+
+    A Python program capable of tracking the user's face,
+    hands and blinks to play and interact with custom tools;
+    created via MediaPipe.
+
+</div>
 
 <div class="section">
 
     <!-- ========================= -->
-    <!-- CARD 1 -->
+    <!-- FACE TRACKING -->
     <!-- ========================= -->
+
+    <div class="big-title">Face Tracking</div>
+
+    <!-- FACE MESH -->
 
     <div class="card">
 
-        <h2>Face Tracking System</h2>
+        <h2>Face Mesh</h2>
+
+        <video class="media" autoplay muted loop playsinline>
+            <source src="Facemesh(1).mp4" type="video/mp4">
+        </video>
 
         <p>
-            This project uses OpenCV and MediaPipe to detect
-            face landmarks, blinking, and hand movement in real time.
+            While this wasn't necessarily needed,
+            i still thought it was really cool being able
+            to turn your face into a digital mesh.
+
+            <br><br>
+
+            Like a lot of the apps you'll see below,
+            this was made possible with MediaPipe.
         </p>
 
-        <!-- GIF / IMAGE -->
-        <img class="media" src="YOUR_GIF.gif">
+    </div>
 
-        <!-- CODE -->
-        <div class="code-container" id="code1">
+    <!-- BLINK DETECTION -->
+
+    <div class="card">
+
+        <h2>Blink Detection</h2>
+
+        <video class="media" autoplay muted loop playsinline>
+            <source src="Blinkdetect.mp4" type="video/mp4">
+        </video>
+
+        <p>
+            Now's where the fun begins;
+            using MediaPipe's face tracking,
+            we can track the individual points
+            around the user's eye each frame
+            to know when they blink.
+        </p>
+
+    </div>
+
+    <!-- FLAPPY BIRD -->
+
+    <div class="card">
+
+        <h2>Flappy Bird</h2>
+
+        <video class="media" autoplay muted loop playsinline>
+            <source src="Flappybird.mp4" type="video/mp4">
+        </video>
+
+        <p>
+            Using blink detection,
+            we can now play flappy bird
+            by just blinking!
+        </p>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- HAND TRACKING -->
+    <!-- ========================= -->
+
+    <div class="big-title">Hand Tracking</div>
+
+    <!-- HAND MESH -->
+
+    <div class="card">
+
+        <h2>Hand Mesh</h2>
+
+        <video class="media" autoplay muted loop playsinline>
+            <source src="Handtracking.mp4" type="video/mp4">
+        </video>
+
+        <p>
+            We can also track the user's hand
+            using MediaPipe.
+
+            <br><br>
+
+            In fact, it's possible to track an
+            entire body using MediaPipe,
+            but you wont be seeing that here.
+        </p>
+
+    </div>
+
+    <!-- PAINTING -->
+
+    <div class="card">
+
+        <h2>Painting</h2>
+
+        <video class="media" autoplay muted loop playsinline>
+            <source src="Handpaint01.mp4" type="video/mp4">
+        </video>
+
+        <p>
+            Now, using hand tracking,
+            we can paint on the screen!
+
+            <br><br>
+
+            There are three modes;
+
+            Paint (☝️),
+            Hover (✌️)
+            and Erase (✋).
+
+            <br><br>
+
+            Using these modes,
+            we can create more complicated creations
+            as seen below.
+        </p>
+
+        <video class="media" autoplay muted loop playsinline>
+            <source src="Handpaint.mp4" type="video/mp4">
+        </video>
+
+        <div class="small-text">
+            But art was never my talent 😶‍🌫️
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- FACE DRAWING -->
+    <!-- ========================= -->
+
+    <div class="big-title">Face Drawing</div>
+
+    <div class="card">
+
+        <video class="media" autoplay muted loop playsinline>
+            <source src="Facedraw.mp4" type="video/mp4">
+        </video>
+
+        <p>
+            To put face tracking to use,
+            we can have a canvas for the user to draw on,
+            to which it will be projected
+            on the user's face.
+        </p>
+
+        <div class="small-text">
+            This feature was a little rushed,
+            hence why it doesnt look that great.
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- SOURCE CODE -->
+    <!-- ========================= -->
+
+    <div class="big-title">Source Code</div>
+
+    <div class="card">
+
+        <p>
+            Full Python source code for the project.
+        </p>
+
+        <div class="code-container" id="fullcode">
 
 <pre><code class="language-python">
+# PASTE YOUR ENTIRE 1000+ LINE PYTHON CODE HERE
+
 import cv2
 import mediapipe as mp
-import math
 import pygame
 
-cap = cv2.VideoCapture(0)
-
-while True:
-
-    success, img = cap.read()
-
-    if not success:
-        break
-
-    cv2.imshow("Camera Feed", img)
-
-    if cv2.waitKey(1) == ord('q'):
-        break
-
-# lots more code here...
-# lots more code here...
-# lots more code here...
-# lots more code here...
-# lots more code here...
+# lots of code...
+# lots of code...
+# lots of code...
+# lots of code...
 </code></pre>
 
             <div class="fade"></div>
@@ -206,216 +455,21 @@ while True:
         </div>
 
         <button class="expand-btn"
-        onclick="toggleCode('code1', this)">
-            Show Full Code
-        </button>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- CARD 2 -->
-    <!-- ========================= -->
-
-    <div class="card">
-
-        <h2>Physics Simulation</h2>
-
-        <p>
-            A simple simulation system with gravity,
-            collision detection, and momentum calculations.
-        </p>
-
-        <!-- VIDEO -->
-        <video class="media" controls>
-            <source src="YOUR_VIDEO.mp4" type="video/mp4">
-        </video>
-
-        <!-- CODE -->
-        <div class="code-container" id="code2">
-
-<pre><code class="language-python">
-class Ball:
-
-    def __init__(self):
-        self.x = 0
-        self.y = 0
-        self.velocity = 12
-
-    def update(self):
-        self.y += self.velocity
-
-# more code...
-# more code...
-# more code...
-# more code...
-</code></pre>
-
-            <div class="fade"></div>
-
-        </div>
-
-        <button class="expand-btn"
-        onclick="toggleCode('code2', this)">
-            Show Full Code
-        </button>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- CARD 3 -->
-    <!-- ========================= -->
-
-    <div class="card">
-
-        <h2>AI Object Detection</h2>
-
-        <p>
-            Detects multiple objects in real time
-            using computer vision models.
-        </p>
-
-        <img class="media" src="YOUR_GIF2.gif">
-
-        <div class="code-container" id="code3">
-
-<pre><code class="language-python">
-import torch
-
-model = torch.hub.load(
-    'ultralytics/yolov5',
-    'yolov5s'
-)
-
-results = model(img)
-
-results.print()
-
-# more code...
-# more code...
-# more code...
-</code></pre>
-
-            <div class="fade"></div>
-
-        </div>
-
-        <button class="expand-btn"
-        onclick="toggleCode('code3', this)">
-            Show Full Code
-        </button>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- CARD 4 -->
-    <!-- ========================= -->
-
-    <div class="card">
-
-        <h2>Game Development</h2>
-
-        <p>
-            A custom Python game prototype using
-            physics and procedural generation.
-        </p>
-
-        <video class="media" controls>
-            <source src="YOUR_VIDEO2.mp4" type="video/mp4">
-        </video>
-
-        <div class="code-container" id="code4">
-
-<pre><code class="language-python">
-import pygame
-
-pygame.init()
-
-screen = pygame.display.set_mode((800, 600))
-
-running = True
-
-while running:
-
-    for event in pygame.event.get():
-
-        if event.type == pygame.QUIT:
-            running = False
-
-pygame.quit()
-
-# more code...
-# more code...
-</code></pre>
-
-            <div class="fade"></div>
-
-        </div>
-
-        <button class="expand-btn"
-        onclick="toggleCode('code4', this)">
+        onclick="toggleCode('fullcode', this)">
             Show Full Code
         </button>
 
     </div>
 
 </div>
-<!-- ========================= -->
-<!-- FULL SOURCE CODE CARD -->
-<!-- ADD THIS AT THE VERY BOTTOM -->
-<!-- INSIDE <div class="section"> -->
-<!-- ========================= -->
 
-<div class="card">
+<footer>
+    Vision Core • MediaPipe + Python
+</footer>
 
-    <h2>Full Source Code</h2>
-
-    <p>
-        Complete project source code containing all systems,
-        tracking logic, rendering, UI, and functionality.
-    </p>
-
-    <!-- FULL CODE -->
-    <div class="code-container" id="fullcode">
-
-<pre><code class="language-python">
-# PASTE YOUR ENTIRE 1000+ LINE CODE HERE
-
-import cv2
-import mediapipe as mp
-import pygame
-import math
-import random
-
-# lots and lots of code...
-
-def main():
-    pass
-
-if __name__ == "__main__":
-    main()
-
-# continue pasting...
-# continue pasting...
-# continue pasting...
-</code></pre>
-
-        <div class="fade"></div>
-
-    </div>
-
-    <button class="expand-btn"
-    onclick="toggleCode('fullcode', this)">
-        Show Full Code
-    </button>
-
-</div>
 <script>
 
-/* SYNTAX HIGHLIGHTING */
-
 hljs.highlightAll();
-
-/* EXPAND / COLLAPSE */
 
 function toggleCode(id, button) {
 
