@@ -295,7 +295,6 @@
 <body>
 <div class="page">
 
-  <!-- Header -->
   <header class="site-header">
     <h1>Vision<span> Core</span></h1>
     <div class="byline">School exhibition project by Keivan Asadi &amp; Niranjan M</div>
@@ -304,9 +303,6 @@
     </div>
   </header>
 
-  <!-- ────────────────────────────── -->
-  <!-- CHAPTER 1: Face Tracking       -->
-  <!-- ────────────────────────────── -->
   <div class="chapter">
     <span class="chapter-num">01</span>
     <h2>Face Tracking</h2>
@@ -330,9 +326,6 @@
 
   <hr>
 
-  <!-- ────────────────────────────── -->
-  <!-- CHAPTER 2: Hand Tracking       -->
-  <!-- ────────────────────────────── -->
   <div class="chapter">
     <span class="chapter-num">02</span>
     <h2>Hand Tracking</h2>
@@ -356,9 +349,6 @@
 
   <hr>
 
-  <!-- ────────────────────────────── -->
-  <!-- CHAPTER 3: Face Drawing        -->
-  <!-- ────────────────────────────── -->
   <div class="chapter">
     <span class="chapter-num">03</span>
     <h2>Face Drawing</h2>
@@ -372,15 +362,11 @@
 
   <hr>
 
-  <!-- ────────────────────────────── -->
-  <!-- CHAPTER 4: Source Code         -->
-  <!-- ────────────────────────────── -->
   <div class="chapter">
     <span class="chapter-num">04</span>
     <h2>Source Code</h2>
   </div>
 
-  <!-- Setup -->
   <div class="setup-box">
     <h3>Setup</h3>
     <p>To use this program yourself, you first need to install MediaPipe and OpenCV</p>
@@ -391,7 +377,6 @@
     <p style="margin-bottom:0;">Make sure you use <strong style="color:#d4d0e8">Python 3.10</strong> to get this working.</p>
   </div>
 
-  <!-- Code block -->
   <div class="code-wrap">
     <div class="code-toolbar">
       <div class="code-toolbar-left">
@@ -419,14 +404,7 @@
   <footer>Vision Core &mdash; Keivan Asadi &amp; Niranjan M</footer>
 </div>
 
-<!--
-  ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
-  YOUR CODE GOES IN THE TEXTAREA BELOW.
-  Select everything between the textarea tags and paste your code.
-  That's it. Save the file. Done.
-  ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
--->
-<textarea id="rawSource" style="display:none">
+<textarea id="hiddenSource" style="display:none">
 # Vision Core
 
 import cv2
@@ -1354,6 +1332,17 @@ let rawSource = '';
 let isExpanded = false;
 let pasteOpen = false;
 
+// ── NEW INJECTED LIFECYCLE INITIALIZER ──
+document.addEventListener("DOMContentLoaded", () => {
+  const targetTextarea = document.getElementById('hiddenSource');
+  if (targetTextarea && targetTextarea.value.trim()) {
+    // Populate the editor panel staging context
+    document.getElementById('codeInput').value = targetTextarea.value;
+    // Trigger runtime compiler syntax highlighter loop
+    applyCode();
+  }
+});
+
 function toggleExpand() {
   isExpanded = !isExpanded;
   document.getElementById('codeScroll').classList.toggle('expanded', isExpanded);
@@ -1378,13 +1367,13 @@ function applyCode() {
   ).join('');
   pasteOpen = false;
   document.getElementById('pastePanel').classList.remove('open');
-  document.querySelector('.code-btn').textContent = '✏ edit';
+  const editBtn = document.querySelector('.code-btn');
+  if(editBtn) editBtn.textContent = '✏ edit';
   document.getElementById('codeScroll').scrollTop = 0;
 }
 
 function hl(line) {
   let h = line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  // order: strings first, then others, comments last
   h = h.replace(/"(?:[^"\\]|\\.)*"/g, m => `<span class="st">${m}</span>`);
   h = h.replace(/'(?:[^'\\]|\\.)*'/g, m => `<span class="st">${m}</span>`);
   h = h.replace(/\b(\d+\.?\d*)\b/g, m => `<span class="nm">${m}</span>`);
