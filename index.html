@@ -1,634 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vision Core</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<title>Vision Core</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<!-- Highlight.js -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    body {
+      background: #0f0f13;
+      color: #d4d0e8;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+    }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    a { color: #a78bfa; }
 
-<style>
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 28px 100px;
+    }
 
-* {
-    box-sizing: border-box;
-}
+    /* ── HEADER ── */
+    .site-header {
+      margin-bottom: 64px;
+      border-bottom: 1px solid #222230;
+      padding-bottom: 40px;
+    }
+    .site-header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .site-header h1 span { color: #a78bfa; }
+    .byline {
+      font-size: 13px;
+      color: #5c5880;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .tagline {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: #16161f;
+      border-left: 3px solid #7c3aed;
+      border-radius: 0 8px 8px 0;
+      color: #b8b4d0;
+      font-size: 14px;
+    }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
+    /* ── SECTION HEADINGS ── */
+    .chapter {
+      margin: 72px 0 36px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .chapter-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #7c3aed;
+      background: #1a1428;
+      border: 1px solid #2d2050;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .chapter h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
 
-    background:
-        radial-gradient(circle at top left, #4c1d95 0%, transparent 35%),
-        radial-gradient(circle at bottom right, #1e1b4b 0%, transparent 40%),
-        #0b0b10;
-}
+    .sub-heading {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7c3aed;
+      margin-bottom: 14px;
+      margin-top: 48px;
+    }
+    .sub-heading:first-child { margin-top: 0; }
 
-/* HEADER */
+    /* ── VIDEO ── */
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid #222230;
+      background: #000;
+    }
 
-header {
-    text-align: center;
-    padding: 90px 20px 50px;
-}
+    /* ── TEXT ── */
+    .note {
+      margin-top: 12px;
+      color: #8a86a8;
+      font-size: 14px;
+    }
+    .note-small {
+      margin-top: 8px;
+      color: #4e4b68;
+      font-size: 13px;
+      font-style: italic;
+    }
+    .video-gap { margin-top: 16px; }
 
-header h1 {
-    font-size: 78px;
-    margin: 0;
+    /* ── SETUP ── */
+    .setup-box {
+      background: #16161f;
+      border: 1px solid #222230;
+      border-radius: 10px;
+      padding: 24px 24px 20px;
+      margin-bottom: 28px;
+    }
+    .setup-box h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .setup-box p {
+      font-size: 14px;
+      color: #8a86a8;
+      margin-bottom: 14px;
+    }
+    .pip {
+      background: #0c0c14;
+      border: 1px solid #2a2840;
+      border-radius: 7px;
+      padding: 12px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #c4b5fd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .pip-copy {
+      background: none;
+      border: 1px solid #2a2840;
+      color: #6b6890;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+    .pip-copy:hover { color: #a78bfa; border-color: #7c3aed; }
 
-    background: linear-gradient(90deg, #ffffff, #b794f4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    /* ── CODE BLOCK ── */
+    .code-wrap {
+      background: #0c0c14;
+      border: 1px solid #222230;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .code-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-bottom: 1px solid #1a1a28;
+      background: #101018;
+    }
+    .code-toolbar-left {
+      display: flex; gap: 6px;
+    }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot:nth-child(1) { background: #ff5f57; }
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #28ca41; }
+    .code-lang-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #3a3860;
+      letter-spacing: 0.08em;
+    }
+    .code-btns { display: flex; gap: 7px; }
+    .code-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 5px;
+      border: 1px solid #2a2840;
+      background: none;
+      color: #6b6890;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .code-btn:hover { color: #a78bfa; border-color: #7c3aed; }
 
-header p {
-    color: #bdbdd6;
-    margin-top: 10px;
-}
+    .code-scroll {
+      overflow-x: auto;
+      overflow-y: auto;
+      max-height: 400px;
+      transition: max-height 0.45s ease;
+    }
+    .code-scroll.expanded { max-height: 99999px; }
 
-/* INFO BOX */
+    pre {
+      padding: 20px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.75;
+      tab-size: 4;
+      min-width: 100%;
+      width: max-content;
+    }
+    .ln-row { display: flex; }
+    .ln-row:hover { background: rgba(124,58,237,0.05); }
+    .ln {
+      min-width: 42px;
+      padding: 0 14px 0 20px;
+      text-align: right;
+      color: #2e2c50;
+      user-select: none;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .lc { white-space: pre; color: #c4b5fd; }
 
-.info-box {
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px;
-    margin-bottom: 50px;
+    /* syntax */
+    .kw { color: #c084fc; }
+    .fn { color: #93c5fd; }
+    .st { color: #86efac; }
+    .cm { color: #3d3a60; font-style: italic; }
+    .nm { color: #fca5a5; }
+    .bi { color: #67e8f9; }
 
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
+    /* paste area */
+    .paste-panel {
+      border-top: 1px solid #1a1a28;
+      padding: 16px;
+      display: none;
+    }
+    .paste-panel.open { display: block; }
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      background: #0a0a12;
+      border: 1px solid #2a2840;
+      border-radius: 7px;
+      padding: 12px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #d4d0e8;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea:focus { border-color: #7c3aed; }
+    .paste-hint { font-size: 11px; color: #3a3860; font-family: 'JetBrains Mono', monospace; margin-top: 7px; }
+    .apply-btn {
+      margin-top: 10px;
+      background: #7c3aed;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 7px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .apply-btn:hover { background: #6d28d9; }
 
-    color: #d6d6ea;
-    line-height: 1.6;
-}
+    hr { border: none; border-top: 1px solid #1a1a24; margin: 64px 0; }
 
-/* SECTION */
-
-.section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* BIG TITLES */
-
-.big-title {
-    font-size: 48px;
-    margin: 70px 0 25px;
-
-    background: linear-gradient(90deg, #fff, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* CARD */
-
-.card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 22px;
-    padding: 25px;
-    margin-bottom: 40px;
-}
-
-.card h2 {
-    margin-top: 0;
-    font-size: 30px;
-}
-
-.card p {
-    color: #cfcfe6;
-    line-height: 1.7;
-}
-
-/* MEDIA */
-
-.media {
-    width: 100%;
-    border-radius: 14px;
-    margin: 18px 0;
-}
-
-/* SMALL TEXT */
-
-.small-text {
-    color: #9a9ab3;
-    font-size: 14px;
-}
-
-/* CODE BOX */
-
-.code-container {
-    position: relative;
-    max-height: 320px;
-    overflow: hidden;
-    transition: 0.5s ease;
-    border-radius: 16px;
-}
-
-.code-container.expanded {
-    max-height: 20000px;
-    overflow: visible;
-}
-
-.fade {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    background: linear-gradient(to bottom, transparent, #0b0b10);
-}
-
-.code-container.expanded .fade {
-    display: none;
-}
-
-/* BUTTON */
-
-.expand-btn {
-    margin-top: 15px;
-    background: linear-gradient(90deg, #7c3aed, #a855f7);
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-}
-
-/* PRE */
-
-pre {
-    margin: 0;
-    overflow-x: auto;
-}
-
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 50px;
-    color: #8e8ea0;
-}
-
-</style>
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 80px;
+      padding-top: 28px;
+      border-top: 1px solid #1a1a24;
+      font-size: 13px;
+      color: #3a3860;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
 </head>
-
 <body>
+<div class="page">
 
-<header>
-    <h1>Vision Core</h1>
-    <p>School exhibition project by Keivan Asadi & Niranjan M</p>
-</header>
-
-<div class="info-box">
-    A Python program capable of tracking the user's face, hands and blinks
-    to play and interact with custom tools; created via MediaPipe.
-</div>
-
-<div class="section">
-
-<!-- ================= FACE TRACKING ================= -->
-
-<div class="big-title">Face Tracking</div>
-
-<div class="card">
-    <h2>Face Mesh</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Facemesh(1).mp4">
-    </video>
-
-    <p>
-        While this wasn't necessarily needed, I still thought it was really cool being able to turn your face into a digital mesh.<br><br>
-        Like a lot of the apps below, this was made possible with MediaPipe.
-    </p>
-</div>
-
-<div class="card">
-    <h2>Blink Detection</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Blinkdetect.mp4">
-    </video>
-
-    <p>
-        Using MediaPipe face tracking, we can detect eye landmarks each frame and detect blinks.
-    </p>
-</div>
-
-<div class="card">
-    <h2>Flappy Bird</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Flappybird.mp4">
-    </video>
-
-    <p>
-        Using blink detection, we can now play Flappy Bird just by blinking.
-    </p>
-</div>
-
-<!-- ================= HAND TRACKING ================= -->
-
-<div class="big-title">Hand Tracking</div>
-
-<div class="card">
-    <h2>Hand Mesh</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Handtracking.mp4">
-    </video>
-
-    <p>
-        MediaPipe allows full hand tracking. It can even track full body pose systems, but this project focuses on hands and face.
-    </p>
-</div>
-
-<div class="card">
-    <h2>Painting</h2>
-
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Handpaint01.mp4">
-    </video>
-
-    <p>
-        Using hand gestures, we can draw in real time.<br>
-        Modes: Paint ☝️, Hover ✌️, Erase ✋
-    </p>
-
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Handpaint.mp4">
-    </video>
-
-    <div class="small-text">But art was never my talent 😶‍🌫️</div>
-</div>
-
-<!-- ================= FACE DRAWING ================= -->
-
-<div class="big-title">Face Drawing</div>
-
-<div class="card">
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Facedraw.mp4">
-    </video>
-
-    <p>
-        A drawing canvas projected onto the user's face using face tracking.
-    </p>
-
-    <div class="small-text">
-        This feature was rushed, hence the imperfections.
+  <!-- Header -->
+  <header class="site-header">
+    <h1>Vision<span> Core</span></h1>
+    <div class="byline">School exhibition project by Keivan Asadi &amp; Niranjan M</div>
+    <div class="tagline">
+      A Python program capable of tracking the user's face, hands and blinks to play and interact with custom tools; created via <strong>MediaPipe</strong>
     </div>
-</div>
+  </header>
 
-<!-- ================= SOURCE CODE ================= -->
+  <!-- ────────────────────────────── -->
+  <!-- CHAPTER 1: Face Tracking       -->
+  <!-- ────────────────────────────── -->
+  <div class="chapter">
+    <span class="chapter-num">01</span>
+    <h2>Face Tracking</h2>
+  </div>
 
-<div class="big-title">Source Code</div>
+  <div class="sub-heading">Face Mesh</div>
+  <video src="Facemesh(1).mp4" autoplay muted loop playsinline></video>
+  <p class="note">
+    While this wasn't necessarily needed, i still thought it was really cool being able to turn your face into a digital mesh Like a lot of the apps you'll see below, this was made possible with MediaPipe
+  </p>
 
-<!-- SETUP -->
-<div class="card">
+  <div class="sub-heading">Blink Detection</div>
+  <video src="Blinkdetect.mp4" autoplay muted loop playsinline></video>
+  <p class="note">
+    Now's where the fun begins; using MediaPipe's face tracking, we can track the individual points around the user's eye each frame to know when they blink.
+  </p>
 
-    <h2>Setup</h2>
+  <div class="sub-heading">Flappy Bird</div>
+  <video src="Flappybird.mp4" autoplay muted loop playsinline></video>
+  <p class="note">Using blink detection, we can now play flappy bird by just blinking!</p>
 
-    <p>
-        To use this program yourself, you first need to install MediaPipe and OpenCV.
-    </p>
+  <hr>
 
-<pre><code class="language-bash">
-pip install mediapipe opencv-python pygame
-</code></pre>
+  <!-- ────────────────────────────── -->
+  <!-- CHAPTER 2: Hand Tracking       -->
+  <!-- ────────────────────────────── -->
+  <div class="chapter">
+    <span class="chapter-num">02</span>
+    <h2>Hand Tracking</h2>
+  </div>
 
-    <div class="small-text">
-        Make sure you use Python 3.10 to get this working.
+  <div class="sub-heading">Hand Mesh</div>
+  <video src="Handtracking.mp4" autoplay muted loop playsinline></video>
+  <p class="note">
+    We can also track the user's hand using MediaPipe. In fact, it's possible to track an entire body using MediaPipe, but you wont be seeing that here.
+  </p>
+
+  <div class="sub-heading">Painting</div>
+  <video src="Handpaint01.mp4" autoplay muted loop playsinline></video>
+  <p class="note">
+    Now, using hand tracking, we can paint on the screen! There are three modes; Paint (☝️), Hover (✌️) and Erase (✋). Using these modes, we can create more complicated creations as seen below
+  </p>
+  <div class="video-gap">
+    <video src="Handpaint.mp4" autoplay muted loop playsinline></video>
+  </div>
+  <p class="note-small">But art was never my talent 😶‍🌫️</p>
+
+  <hr>
+
+  <!-- ────────────────────────────── -->
+  <!-- CHAPTER 3: Face Drawing        -->
+  <!-- ────────────────────────────── -->
+  <div class="chapter">
+    <span class="chapter-num">03</span>
+    <h2>Face Drawing</h2>
+  </div>
+
+  <video src="Facedraw.mp4" autoplay muted loop playsinline></video>
+  <p class="note">
+    To put face tracking to use, we can have a canvas for the user to draw on, to which it will be projected on the user's face.
+  </p>
+  <p class="note-small">This feature was a little rushed, hence why it doesnt look that great</p>
+
+  <hr>
+
+  <!-- ────────────────────────────── -->
+  <!-- CHAPTER 4: Source Code         -->
+  <!-- ────────────────────────────── -->
+  <div class="chapter">
+    <span class="chapter-num">04</span>
+    <h2>Source Code</h2>
+  </div>
+
+  <!-- Setup -->
+  <div class="setup-box">
+    <h3>Setup</h3>
+    <p>To use this program yourself, you first need to install MediaPipe and OpenCV</p>
+    <div class="pip">
+      <span>pip install mediapipe opencv-python</span>
+      <button class="pip-copy" onclick="copyPip(this)">copy</button>
+    </div>
+    <p style="margin-bottom:0;">Make sure you use <strong style="color:#d4d0e8">Python 3.10</strong> to get this working.</p>
+  </div>
+
+  <!-- Code block -->
+  <div class="code-wrap">
+    <div class="code-toolbar">
+      <div class="code-toolbar-left">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <span class="code-lang-label">PYTHON</span>
+      <div class="code-btns">
+        <button class="code-btn" onclick="togglePaste()">✏ edit</button>
+        <button class="code-btn" id="copyBtn" onclick="copyCode()">copy</button>
+        <button class="code-btn" id="expandBtn" onclick="toggleExpand()">↕ expand</button>
+      </div>
     </div>
 
-</div>
-
-<!-- FULL CODE -->
-<div class="card">
-
-    <h2>Full Source Code</h2>
-
-<pre><code class="language-python">
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vision Core</title>
-
-<!-- Highlight.js -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-
-    background:
-        radial-gradient(circle at top left, #4c1d95 0%, transparent 35%),
-        radial-gradient(circle at bottom right, #1e1b4b 0%, transparent 40%),
-        #0b0b10;
-}
-
-/* HEADER */
-
-header {
-    text-align: center;
-    padding: 90px 20px 50px;
-}
-
-header h1 {
-    font-size: 78px;
-    margin: 0;
-
-    background: linear-gradient(90deg, #ffffff, #b794f4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-header p {
-    color: #bdbdd6;
-    margin-top: 10px;
-}
-
-/* INFO BOX */
-
-.info-box {
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px;
-    margin-bottom: 50px;
-
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-
-    color: #d6d6ea;
-    line-height: 1.6;
-}
-
-/* SECTION */
-
-.section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* BIG TITLES */
-
-.big-title {
-    font-size: 48px;
-    margin: 70px 0 25px;
-
-    background: linear-gradient(90deg, #fff, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* CARD */
-
-.card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 22px;
-    padding: 25px;
-    margin-bottom: 40px;
-}
-
-.card h2 {
-    margin-top: 0;
-    font-size: 30px;
-}
-
-.card p {
-    color: #cfcfe6;
-    line-height: 1.7;
-}
-
-/* MEDIA */
-
-.media {
-    width: 100%;
-    border-radius: 14px;
-    margin: 18px 0;
-}
-
-/* SMALL TEXT */
-
-.small-text {
-    color: #9a9ab3;
-    font-size: 14px;
-}
-
-/* CODE BOX */
-
-.code-container {
-    position: relative;
-    max-height: 320px;
-    overflow: hidden;
-    transition: 0.5s ease;
-    border-radius: 16px;
-}
-
-.code-container.expanded {
-    max-height: 20000px;
-    overflow: visible;
-}
-
-.fade {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    background: linear-gradient(to bottom, transparent, #0b0b10);
-}
-
-.code-container.expanded .fade {
-    display: none;
-}
-
-/* BUTTON */
-
-.expand-btn {
-    margin-top: 15px;
-    background: linear-gradient(90deg, #7c3aed, #a855f7);
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-}
-
-/* PRE */
-
-pre {
-    margin: 0;
-    overflow-x: auto;
-}
-
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 50px;
-    color: #8e8ea0;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>Vision Core</h1>
-    <p>School exhibition project by Keivan Asadi & Niranjan M</p>
-</header>
-
-<div class="info-box">
-    A Python program capable of tracking the user's face, hands and blinks
-    to play and interact with custom tools; created via MediaPipe.
-</div>
-
-<div class="section">
-
-<!-- ================= FACE TRACKING ================= -->
-
-<div class="big-title">Face Tracking</div>
-
-<div class="card">
-    <h2>Face Mesh</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Facemesh(1).mp4">
-    </video>
-
-    <p>
-        While this wasn't necessarily needed, I still thought it was really cool being able to turn your face into a digital mesh.<br><br>
-        Like a lot of the apps below, this was made possible with MediaPipe.
-    </p>
-</div>
-
-<div class="card">
-    <h2>Blink Detection</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Blinkdetect.mp4">
-    </video>
-
-    <p>
-        Using MediaPipe face tracking, we can detect eye landmarks each frame and detect blinks.
-    </p>
-</div>
-
-<div class="card">
-    <h2>Flappy Bird</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Flappybird.mp4">
-    </video>
-
-    <p>
-        Using blink detection, we can now play Flappy Bird just by blinking.
-    </p>
-</div>
-
-<!-- ================= HAND TRACKING ================= -->
-
-<div class="big-title">Hand Tracking</div>
-
-<div class="card">
-    <h2>Hand Mesh</h2>
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Handtracking.mp4">
-    </video>
-
-    <p>
-        MediaPipe allows full hand tracking. It can even track full body pose systems, but this project focuses on hands and face.
-    </p>
-</div>
-
-<div class="card">
-    <h2>Painting</h2>
-
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Handpaint01.mp4">
-    </video>
-
-    <p>
-        Using hand gestures, we can draw in real time.<br>
-        Modes: Paint ☝️, Hover ✌️, Erase ✋
-    </p>
-
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Handpaint.mp4">
-    </video>
-
-    <div class="small-text">But art was never my talent 😶‍🌫️</div>
-</div>
-
-<!-- ================= FACE DRAWING ================= -->
-
-<div class="big-title">Face Drawing</div>
-
-<div class="card">
-    <video class="media" autoplay muted loop playsinline>
-        <source src="Facedraw.mp4">
-    </video>
-
-    <p>
-        A drawing canvas projected onto the user's face using face tracking.
-    </p>
-
-    <div class="small-text">
-        This feature was rushed, hence the imperfections.
-    </div>
-</div>
-
-<!-- ================= SOURCE CODE ================= -->
-
-<div class="big-title">Source Code</div>
-
-<!-- SETUP -->
-<div class="card">
-
-    <h2>Setup</h2>
-
-    <p>
-        To use this program yourself, you first need to install MediaPipe and OpenCV.
-    </p>
-
-<pre><code class="language-bash">
-pip install mediapipe opencv-python pygame
-</code></pre>
-
-    <div class="small-text">
-        Make sure you use Python 3.10 to get this working.
-    </div>
-
-</div>
-
-<!-- FULL CODE -->
-<div class="card">
-
-    <h2>Full Source Code</h2>
-
-<pre><code class="language-python">
-# Vision Core
+    <div class="code-scroll" id="codeScroll">
+      # Vision Core
 
 import cv2
 import mediapipe as mp
@@ -1548,35 +1326,80 @@ def run():
 threading.Thread(target=ui, daemon=True).start()
 run()
 cap.release()
-</code></pre>
+      <pre id="codeDisplay"><div class="ln-row"><span class="ln">1</span><span class="lc"><span class="cm"># Paste your source code using the Edit button above</span></span></div><div class="ln-row"><span class="ln">2</span><span class="lc"><span class="cm"># Click ✏ edit → paste → Apply</span></span></div><div class="ln-row"><span class="ln">3</span><span class="lc"></span></div><div class="ln-row"><span class="ln">4</span><span class="lc"><span class="kw">import</span> mediapipe <span class="kw">as</span> mp</span></div><div class="ln-row"><span class="ln">5</span><span class="lc"><span class="kw">import</span> cv2</span></div><div class="ln-row"><span class="ln">6</span><span class="lc"><span class="kw">import</span> numpy <span class="kw">as</span> np</span></div></pre>
+    </div>
 
+    <div class="paste-panel" id="pastePanel">
+      <textarea id="codeInput" placeholder="Paste your Python source code here…" spellcheck="false"></textarea>
+      <p class="paste-hint">Works with 1000+ lines — no cut-off</p>
+      <button class="apply-btn" onclick="applyCode()">Apply</button>
+    </div>
+  </div>
+
+  <footer>Vision Core &mdash; Keivan Asadi &amp; Niranjan M</footer>
 </div>
-
-</div>
-
-<footer>
-    Vision Core Project
-</footer>
 
 <script>
-hljs.highlightAll();
+let rawSource = '';
+let isExpanded = false;
+let pasteOpen = false;
+
+function toggleExpand() {
+  isExpanded = !isExpanded;
+  document.getElementById('codeScroll').classList.toggle('expanded', isExpanded);
+  document.getElementById('expandBtn').textContent = isExpanded ? '↕ collapse' : '↕ expand';
+}
+
+function togglePaste() {
+  pasteOpen = !pasteOpen;
+  document.getElementById('pastePanel').classList.toggle('open', pasteOpen);
+  const btn = document.querySelector('.code-btn');
+  btn.textContent = pasteOpen ? '✕ close' : '✏ edit';
+  if (pasteOpen && rawSource) document.getElementById('codeInput').value = rawSource;
+}
+
+function applyCode() {
+  const raw = document.getElementById('codeInput').value;
+  if (!raw.trim()) return;
+  rawSource = raw;
+  const lines = raw.split('\n');
+  document.getElementById('codeDisplay').innerHTML = lines.map((l, i) =>
+    `<div class="ln-row"><span class="ln">${i + 1}</span><span class="lc">${hl(l)}</span></div>`
+  ).join('');
+  pasteOpen = false;
+  document.getElementById('pastePanel').classList.remove('open');
+  document.querySelector('.code-btn').textContent = '✏ edit';
+  document.getElementById('codeScroll').scrollTop = 0;
+}
+
+function hl(line) {
+  let h = line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  // order: strings first, then others, comments last
+  h = h.replace(/"(?:[^"\\]|\\.)*"/g, m => `<span class="st">${m}</span>`);
+  h = h.replace(/'(?:[^'\\]|\\.)*'/g, m => `<span class="st">${m}</span>`);
+  h = h.replace(/\b(\d+\.?\d*)\b/g, m => `<span class="nm">${m}</span>`);
+  h = h.replace(/\b(import|from|as|def|class|return|if|elif|else|for|while|in|not|and|or|is|None|True|False|try|except|finally|with|pass|break|continue|raise|lambda|yield|global|nonlocal|del|assert)\b/g, m => `<span class="kw">${m}</span>`);
+  h = h.replace(/\b(print|len|range|list|dict|set|tuple|str|int|float|bool|type|self|super|open|enumerate|zip|map|filter|sorted|min|max|sum|abs|round|input|isinstance)\b/g, m => `<span class="bi">${m}</span>`);
+  h = h.replace(/\b([a-zA-Z_]\w*)\s*(?=\()/g, m => `<span class="fn">${m}</span>`);
+  h = h.replace(/(#.*)$/, m => `<span class="cm">${m}</span>`);
+  return h;
+}
+
+function copyCode() {
+  const text = rawSource || '# No code pasted yet';
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ copied';
+    setTimeout(() => btn.textContent = 'copy', 1500);
+  });
+}
+
+function copyPip(btn) {
+  navigator.clipboard.writeText('pip install mediapipe opencv-python').then(() => {
+    btn.textContent = '✓';
+    setTimeout(() => btn.textContent = 'copy', 1500);
+  });
+}
 </script>
-
-</body>
-</html>
-</code></pre>
-
-</div>
-
-</div>
-
-<footer>
-    Vision Core Project
-</footer>
-
-<script>
-hljs.highlightAll();
-</script>
-
 </body>
 </html>
