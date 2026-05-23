@@ -406,7 +406,28 @@
     </div>
 
     <div class="code-scroll" id="codeScroll">
-      # Vision Core
+      <pre id="codeDisplay"></pre>
+    </div>
+
+    <div class="paste-panel" id="pastePanel">
+      <textarea id="codeInput" placeholder="Paste your Python source code here…" spellcheck="false"></textarea>
+      <p class="paste-hint">Works with 1000+ lines — no cut-off</p>
+      <button class="apply-btn" onclick="applyCode()">Apply</button>
+    </div>
+  </div>
+
+  <footer>Vision Core &mdash; Keivan Asadi &amp; Niranjan M</footer>
+</div>
+
+<!--
+  ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+  YOUR CODE GOES IN THE TEXTAREA BELOW.
+  Select everything between the textarea tags and paste your code.
+  That's it. Save the file. Done.
+  ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+-->
+<textarea id="rawSource" style="display:none">
+# Vision Core
 
 import cv2
 import mediapipe as mp
@@ -1326,18 +1347,7 @@ def run():
 threading.Thread(target=ui, daemon=True).start()
 run()
 cap.release()
-      <pre id="codeDisplay"><div class="ln-row"><span class="ln">1</span><span class="lc"><span class="cm"># Paste your source code using the Edit button above</span></span></div><div class="ln-row"><span class="ln">2</span><span class="lc"><span class="cm"># Click ✏ edit → paste → Apply</span></span></div><div class="ln-row"><span class="ln">3</span><span class="lc"></span></div><div class="ln-row"><span class="ln">4</span><span class="lc"><span class="kw">import</span> mediapipe <span class="kw">as</span> mp</span></div><div class="ln-row"><span class="ln">5</span><span class="lc"><span class="kw">import</span> cv2</span></div><div class="ln-row"><span class="ln">6</span><span class="lc"><span class="kw">import</span> numpy <span class="kw">as</span> np</span></div></pre>
-    </div>
-
-    <div class="paste-panel" id="pastePanel">
-      <textarea id="codeInput" placeholder="Paste your Python source code here…" spellcheck="false"></textarea>
-      <p class="paste-hint">Works with 1000+ lines — no cut-off</p>
-      <button class="apply-btn" onclick="applyCode()">Apply</button>
-    </div>
-  </div>
-
-  <footer>Vision Core &mdash; Keivan Asadi &amp; Niranjan M</footer>
-</div>
+</textarea>
 
 <script>
 let rawSource = '';
